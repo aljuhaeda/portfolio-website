@@ -24,7 +24,12 @@ import { notFound } from 'next/navigation';
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
-    notFound();
+    // A directory with zero posts (e.g. blog/posts, since it's currently
+    // unused) isn't tracked by git at all, so it won't exist after a fresh
+    // clone even though it exists locally. Treat that as "no posts" rather
+    // than a 404 - calling notFound() here crashed the entire production
+    // build's static-page-data collection.
+    return [];
   }
 
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
