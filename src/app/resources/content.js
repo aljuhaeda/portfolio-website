@@ -7,7 +7,8 @@ const person = {
   role: "AI / Machine Learning Engineer",
   avatar: "/images/avatar.jpg",
   email: "aljuhaeda@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna' - used for the live clock
+  locationLabel: "Bogor, Indonesia", // Human-readable, shown on the About page
   languages: ["English", "Bahasa Indonesia"],
 };
 
@@ -58,7 +59,7 @@ const about = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, ${person.role} from ${person.locationLabel}`,
   tableOfContent: {
     display: true,
     subItems: false,

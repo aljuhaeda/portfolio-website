@@ -1,5 +1,4 @@
-// TODO: replace with the real domain once this is deployed
-const baseURL = "https://aljuhaeda-portfolio.vercel.app";
+const baseURL = "https://portfolioaljuhaeda.vercel.app";
 
 const routes = {
   "/": true,
