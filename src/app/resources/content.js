@@ -13,7 +13,7 @@ const person = {
 
 const newsletter = {
   display: false,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  title: <>Subscribe to {person.firstName}&apos;s Newsletter</>,
   description: <></>,
 };
 
@@ -37,19 +37,18 @@ const social = [
 
 const home = {
   path: "/",
-  image: "/images/og/home.jpg",
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
   headline: <>Building machine learning that holds up under scrutiny</>,
   featured: {
     display: true,
-    title: <>Featured project: <strong className="ml-4">IndoNewsClassifier</strong></>,
-    href: "/work/indonewsclassifier-indonesian-news-text-classification",
+    title: <>Featured project: <strong className="ml-4">KlasifikasiSentimenTwitter</strong></>,
+    href: "/work/klasifikasisentimentwitter-hate-speech-classifier",
   },
   subline: (
     <>
-      I'm Zul, an AI/ML engineer building text classifiers, computer-vision models, and
+      I&apos;m Zul, an AI/ML engineer building text classifiers, computer-vision models, and
       <br /> data-driven applications — and verifying every result before I call it done.
     </>
   ),
@@ -76,11 +75,11 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        I'm a Computer Science graduate building machine learning models and data-driven
+        I&apos;m a Computer Science graduate building machine learning models and data-driven
         applications, with published research in NLP and hands-on projects spanning text
         classification, medical imaging, and financial risk prediction. I care as much about
         whether a reported result is actually true as I do about shipping the model — several of
-        the projects below started as someone else's code with an unverified accuracy claim, and
+        the projects below started as someone else&apos;s code with an unverified accuracy claim, and
         ended with a retrained model and numbers I can stand behind.
       </>
     ),
