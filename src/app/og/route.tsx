@@ -2,7 +2,10 @@ import { ImageResponse } from "next/og";
 import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 
-export const runtime = "edge";
+// Was "edge" - Edge Functions have a much smaller size ceiling on Vercel's
+// Hobby plan than regular serverless functions, and this route was tipping
+// over it (this same template hit this exact issue before, per its own
+// git history). Running as a normal Node serverless function instead.
 
 export async function GET(request: Request) {
   let url = new URL(request.url);
@@ -55,6 +58,8 @@ export async function GET(request: Request) {
         >
           <img
             src={baseURL + person.avatar}
+            width={192}
+            height={192}
             style={{
               width: "12rem",
               height: "12rem",
