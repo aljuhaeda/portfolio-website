@@ -1,0 +1,26 @@
+---
+title: "LaundryGIS — Laundry Shop Map Dashboard"
+publishedAt: "2026-07-15"
+summary: "A GIS dashboard for laundry shop locations — every page had been pointing at a dead localhost iframe."
+link: "https://github.com/aljuhaeda/LaundryGIS"
+images: []
+---
+
+## Overview
+
+A GIS dashboard mapping laundry shop locations and data.
+
+## What I fixed
+
+Every page in the site embedded a dead `localhost:8080` iframe — nothing actually rendered for a real visitor. I rebuilt it as a real Leaflet map with a data table and filters, built directly from the repository's own data, so it works for anyone visiting the site rather than only on the original developer's machine.
+
+I also found that `feature.html` and `team.html` had never been de-templated — they still had placeholder team members and dead navigation links from the starting template — and rewrote both with honest, accurate content.
+
+## Technologies Used
+
+- **Leaflet** — interactive mapping
+- **HTML / CSS / JavaScript**
+
+## Links
+
+- [Source on GitHub](https://github.com/aljuhaeda/LaundryGIS)

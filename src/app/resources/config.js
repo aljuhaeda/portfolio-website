@@ -1,19 +1,17 @@
-// IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://demo.magic-portfolio.com";
+// TODO: replace with the real domain once this is deployed
+const baseURL = "https://aljuhaeda-portfolio.vercel.app";
 
 const routes = {
   "/": true,
   "/about": true,
   "/work": true,
-  "/blog": true,
-  "/gallery": true,
+  "/blog": false, // no real posts yet
+  "/gallery": false, // no real photos yet
 };
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
-const protectedRoutes = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
-};
+const protectedRoutes = {};
 
 import { Geist } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
