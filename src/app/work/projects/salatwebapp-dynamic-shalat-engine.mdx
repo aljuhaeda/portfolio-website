@@ -1,0 +1,29 @@
+---
+title: "Dynamic Shalat Engine — Interactive Salat Guide"
+publishedAt: "2026-07-13"
+summary: "A step-by-step guide through Islamic prayer postures and recitations — early-stage prototype, one of five prayers implemented so far."
+link: "https://github.com/aljuhaeda/salatwebapp"
+images:
+  - "/images/projects/salatwebapp/cover-01.jpg"
+---
+
+## Overview
+
+An interactive, step-by-step guide through the postures, recitations, and intentions (niyyah) of Islamic prayer (salat) — Arabic text, transliteration, and English translation for each step, with an audio toggle and a "Dalil" (evidence/reference) panel. State is stored locally via IndexedDB, so it works offline.
+
+## Honest status
+
+This is an early-stage prototype, not a finished product. Only Subuh (Fajr) currently has content built out — Dzuhur, Ashar, Maghrib, and Isya are still missing. The underlying step-engine (content variation selection, step navigation, offline-first state) works end-to-end for the one prayer it covers; it just needs the remaining four prayers' worth of content written.
+
+It also didn't run out of the box: `next dev` failed immediately because Next.js 16 defaults to Turbopack, and `next-pwa`'s webpack config (a no-op in development) tripped Turbopack's mismatch check. Fixed with an explicit `turbopack: {}` in `next.config.ts`.
+
+## Technologies Used
+
+- **Next.js 16** (Turbopack), **React 19**
+- **Dexie** (IndexedDB) for offline-first local state
+- **Tailwind CSS**
+- **next-pwa** for installable/offline support
+
+## Links
+
+- [Source on GitHub](https://github.com/aljuhaeda/salatwebapp)
