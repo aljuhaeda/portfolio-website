@@ -1,0 +1,41 @@
+---
+title: "MuslimAll — Prayer Times, Guide & Quran Companion"
+publishedAt: "2026-07-23"
+summary: "A Flutter app merging two earlier prototypes (MusliMalang, salatwebapp) into one: nationwide prayer times, a full 5-prayer step-by-step guide, and Quran verses."
+link: "https://github.com/aljuhaeda/MuslimAll"
+images: []
+---
+
+## Overview
+
+MuslimAll merges two earlier, narrower prototypes into a single app: **MusliMalang** (prayer times, limited to one Indonesian city) and **salatwebapp** (a step-by-step prayer guide with only one of five daily prayers built out). MuslimAll covers prayer times for any major Indonesian city, a complete step-by-step guide through all five daily prayers, and curated plus random Quran verse reflections.
+
+## What changed from the two predecessors
+
+- **Prayer times**: no longer limited to Malang — resolves for any major Indonesian city via the Aladhan API (Kemenag RI calculation method).
+- **Prayer guide**: extended from one prayer (Subuh) to all five (Subuh, Dzuhur, Ashar, Maghrib, Isya), each with correct rakaat counts, correct jahar/sirr recitation rules, and Qunut correctly scoped to Subuh only.
+- **New design identity**: a "lantern at night" palette (deep indigo with amber accents), distinct from both predecessors, with hand-drawn geometric motifs via `CustomPainter`.
+
+## Process
+
+The religious content — recitations for the four newly-added prayers, Dalil (source) references, and the Quran theme mapping — was explicitly flagged in the code as needing review before being treated as authoritative, since it's content people would actually pray from. Before this project replaced its predecessors, I:
+
+1. Extracted every recitation and per-prayer configuration directly from the app's source (not by hand-transcribing) into a standalone review document.
+2. Had the content reviewed for accuracy against that document.
+3. Ran a full code and security review — dependency versions, request-handling, no hardcoded secrets — and fixed one real issue: neither of the app's two HTTP clients had a request timeout, so a hung connection would leave the loading spinner running forever instead of surfacing the existing error message.
+4. Verified the build itself: `flutter analyze` clean, all 14 tests passing (including structural-correctness tests for every prayer's rakaat count and step sequence), and a served web build confirmed actually rendering in a browser.
+
+Only after all of that did MusliMalang and salatwebapp get archived in its favor.
+
+## Technologies Used
+
+- **Flutter / Dart**, **GetX** for state management
+- **Aladhan API** (prayer times), **equran.id API** (Quran text and translation)
+
+## Honest status
+
+The audio-playback feature on the prayer guide screen is still a "coming soon" stub, not yet built. Everything else — prayer times, the full 5-prayer guide, and Quran verses — is working and reviewed.
+
+## Links
+
+- [Source on GitHub](https://github.com/aljuhaeda/MuslimAll)
