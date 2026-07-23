@@ -32,6 +32,11 @@ Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
 - Verified live on the real production domain: homepage, About page,
   `/og` endpoint, timezone-dependent clock.
 - 0 open GitHub issues as of 2026-07-23.
+- Replaced the MusliMalang and salatwebapp case studies with one for
+  MuslimAll (2026-07-23), after both underlying repos were archived in
+  its favor. `images: []` used honestly rather than reusing a mismatched
+  screenshot from either predecessor (their designs differ from
+  MuslimAll's). Now 6 case studies, not 7.
 
 ## In progress
 - Nothing currently active.
@@ -41,6 +46,12 @@ Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
   correctly (live clock, correct featured project, no console errors).
   `/security-review` skill checked (diff-based, N/A — no code changes
   on this branch to review).
+- 2026-07-23: after the case-study swap, served locally and confirmed:
+  new project page renders correctly, `/work` list shows 6 projects with
+  no dangling references to the removed two, and the "Featured project:
+  KlasifikasiSentimenTwitter" badge (independently configured, not
+  date-sorted) was unaffected. Re-verified live after the Vercel deploy
+  completed — the new case study is confirmed live in production.
 
 ## Known issues / honest limitations
 - `/blog` and `/gallery` routes are disabled — no real content exists
@@ -49,7 +60,11 @@ Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
   runtime behavior (e.g. the OG route) without a test catching it —
   this is exactly the class of bug that shipped 3 times during the
   original deploy.
+- MuslimAll's case study has no screenshot (`images: []`) — no real one
+  was available to capture in this environment. A real screenshot
+  should be added when possible.
 
 ## Next up
-- Nothing scheduled. Candidate: add a minimal smoke test for the `/og`
-  route and blog fallback, given both have broken silently before.
+- Add a real screenshot for the MuslimAll case study.
+- Candidate: add a minimal smoke test for the `/og` route and blog
+  fallback, given both have broken silently before.
