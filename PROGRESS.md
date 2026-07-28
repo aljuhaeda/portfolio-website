@@ -60,11 +60,20 @@ Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
   runtime behavior (e.g. the OG route) without a test catching it —
   this is exactly the class of bug that shipped 3 times during the
   original deploy.
-- MuslimAll's case study has no screenshot (`images: []`) — no real one
-  was available to capture in this environment. A real screenshot
-  should be added when possible.
 
 ## Next up
-- Add a real screenshot for the MuslimAll case study.
 - Candidate: add a minimal smoke test for the `/og` route and blog
   fallback, given both have broken silently before.
+
+## Verification log (continued)
+- 2026-07-28: added MuslimAll's missing case-study cover screenshot —
+  served the app's own `flutter build web` locally, screenshotted its
+  Home hub in a real browser, cropped/resized to match the other case
+  studies' 1280x720 convention, saved to
+  `public/images/projects/muslimall/cover-01.jpg`. Also corrected several
+  claims in `muslimall-prayer-companion.mdx` that had drifted out of
+  date versus MuslimAll's own `PROGRESS.md`: the old "lantern at night"
+  palette description (superseded by the warm-neutral redesign), "audio
+  is a coming-soon stub" (real for Al-Fatihah since), the removed
+  random-verse mode, and a hardcoded "14 tests" count. Re-verified
+  locally: page renders 200, image request 200, no console errors.
