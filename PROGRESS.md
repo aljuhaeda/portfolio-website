@@ -60,6 +60,16 @@ Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
   runtime behavior (e.g. the OG route) without a test catching it —
   this is exactly the class of bug that shipped 3 times during the
   original deploy.
+- `RouteGuard.tsx` still contains the full password-gate flow (fetches
+  to `/api/authenticate` and `/api/check-auth`, both deleted as dead
+  code — see Done above). Currently inert because `protectedRoutes = {}`
+  in `config.js`, but would silently break (404 → treated as
+  "not authenticated") if that config were ever populated. Not removed
+  since it's dead-but-harmless; worth deleting alongside a future
+  cleanup pass.
+- `og/route.tsx` declares `fontFamily: "Inter"` but the custom font
+  fetch/embedding is commented out, so OG images silently render with
+  Satori's default fallback font instead of Inter. Cosmetic, not a crash.
 
 ## Next up
 - Candidate: add a minimal smoke test for the `/og` route and blog
@@ -77,3 +87,10 @@ Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
   is a coming-soon stub" (real for Al-Fatihah since), the removed
   random-verse mode, and a hardcoded "14 tests" count. Re-verified
   locally: page renders 200, image request 200, no console errors.
+- 2026-07-28 (fresh audit): fixed a live bug in `src/app/sitemap.ts` —
+  `baseURL` (from `config.js`) already includes `https://`, but
+  sitemap.ts prepended a second `https://`, so production's
+  `sitemap.xml` was serving `https://https://portfolioaljuhaeda.vercel.app/...`
+  URLs (every other file in the codebase uses `baseURL` bare). Fixed all
+  3 occurrences; verified via `npm run build` + `next start` that
+  `/sitemap.xml` now serves correctly-formed single-scheme URLs.
