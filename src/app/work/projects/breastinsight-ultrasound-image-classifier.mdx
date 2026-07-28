@@ -1,0 +1,27 @@
+---
+title: "BreastInsight — Breast Ultrasound Image Classifier"
+publishedAt: "2026-07-29"
+summary: "A CNN classifier for breast ultrasound images, rebuilt after finding the training data was silently contaminated with segmentation masks."
+link: "https://github.com/aljuhaeda/BreastInsight"
+images: []
+---
+
+## Overview
+
+A Convolutional Neural Network that classifies breast ultrasound images into three categories — normal, benign, and malignant — trained on the BUSI dataset as a screening-aid research project.
+
+## What I found and fixed
+
+The original notebook claimed 87% test accuracy. On inspection, the training pipeline was loading segmentation masks alongside the actual ultrasound images — 798 mask files mixed into what should have been a 780-image, 3-class dataset — so the model was trained and evaluated on data that included images with none of the texture information the classifier actually needs. A second, independent bug compounded it: the classification report built its true/predicted label lists from two separately-shuffled passes over the dataset, so they no longer corresponded to the same images.
+
+I rebuilt the pipeline to exclude the masks and fixed the label-alignment bug. The honest result: **69% validation accuracy**, with per-class recall reported plainly rather than as one flattering headline number — benign 0.91, malignant 0.47, normal 0.14. Malignant recall in particular isn't screening-grade; the model misses over half of malignant cases in validation, which the README states directly rather than papering over.
+
+## Technologies Used
+
+- **Python**, **TensorFlow / Keras** — CNN model, ImageDataGenerator
+- **NumPy**, **Matplotlib** — evaluation and confusion matrix
+- **PIL / OpenCV** — image preprocessing
+
+## Links
+
+- [Source on GitHub](https://github.com/aljuhaeda/BreastInsight)
