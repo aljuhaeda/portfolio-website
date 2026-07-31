@@ -1,7 +1,7 @@
 ---
 title: "KlasifikasiSentimenTwitter — Hate Speech Classifier"
 publishedAt: "2026-07-18"
-summary: "Naïve Bayes hate-speech classifier for Twitter/X comments, with results published in JISMAN Journal."
+summary: "Naïve Bayes hate-speech classifier for Twitter/X comments, published in Journal of Informatics and Science Media (JISMAN)."
 link: "https://klasifikasisentimentwitter.streamlit.app/"
 images:
   - "/images/projects/klasifikasisentimentwitter/cover-01.jpg"
@@ -9,13 +9,13 @@ images:
 
 ## Overview
 
-A sentiment/hate-speech classifier for Indonesian Twitter comments. The underlying research was published in JISMAN Journal (Nov 2024). The repository had been sitting in a buried folder with a README that overstated what the deployed model could actually do.
+A Multinomial Naïve Bayes classifier detecting hate speech against Islam in Indonesian-language tweets. The underlying research was published in the Journal of Informatics and Science Media (JISMAN), Vol. 1 No. 2, December 2024. The repository had been sitting in a buried folder with a README that overstated what the deployed model could actually do.
 
 ## What I fixed
 
 - Promoted the project out of a nested folder into its own repo.
-- Corrected a factually wrong README claim.
-- Swapped the deployed model for one with real hate-speech recall — **32%** recall on the hate-speech class versus **14%** for the previously deployed model.
+- Corrected a factually wrong README claim (an unverifiable "92%"-style headline number that didn't match the notebook).
+- Deliberately deployed the config that trades accuracy for recall on the minority (hate-speech) class: **18% recall / 83% accuracy** (alpha=2.0, 80/20 split), instead of the highest-accuracy config, which scores 84% accuracy but only **14% recall** — a hate-speech filter that catches 1 in 7 real cases isn't a useful filter, regardless of its accuracy score.
 
 ## Technologies Used
 
