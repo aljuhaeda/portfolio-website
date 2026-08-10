@@ -36,7 +36,17 @@ Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
   MuslimAll (2026-07-23), after both underlying repos were archived in
   its favor. `images: []` used honestly rather than reusing a mismatched
   screenshot from either predecessor (their designs differ from
-  MuslimAll's). Now 6 case studies, not 7.
+  MuslimAll's). Down to 6 case studies at that point.
+- Added the missing BreastInsight case study (2026-07-29) — a real,
+  finished ML repo that had zero mention in the portfolio despite every
+  other active repo having a write-up. Back up to 7 case studies.
+- Fixed stale numbers on the KlasifikasiSentimenTwitter case study
+  (2026-07-31): the summary/overview cited an old "32%/14% recall,
+  JISMAN Journal (Nov 2024)" framing that no longer matched the repo's
+  own corrected numbers and citation — updated to 18%/83% (vs. 14%/84%)
+  and the JISMAN Vol. 1 No. 2, Dec 2024 citation, per that repo's own
+  `PROGRESS.md`. A reminder that case-study MDX can drift stale when its
+  source repo's own numbers get corrected later.
 
 ## In progress
 - Nothing currently active.
@@ -94,3 +104,8 @@ Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
   URLs (every other file in the codebase uses `baseURL` bare). Fixed all
   3 occurrences; verified via `npm run build` + `next start` that
   `/sitemap.xml` now serves correctly-formed single-scheme URLs.
+- 2026-07-29: added the BreastInsight case study MDX (see Done above).
+- 2026-07-31: corrected the KlasifikasiSentimenTwitter case study's stale
+  recall/accuracy numbers and journal citation date (see Done above),
+  found while auditing case studies against their source repos'
+  `PROGRESS.md` files.
