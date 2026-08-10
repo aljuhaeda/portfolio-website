@@ -1,5 +1,7 @@
 # Zul Iflah Al Juhaeda — Portfolio
 
+![Homepage screenshot](public/readme/homepage.png)
+
 Personal portfolio site showcasing my machine learning and software projects — text classifiers, a bankruptcy risk model, a Flutter prayer-times app, a GIS dashboard, and more. Built with [Next.js](https://nextjs.org) and the [Once UI](https://once-ui.com) design system, on top of the [Magic Portfolio](https://github.com/once-ui-system/magic-portfolio) template.
 
 ## Getting started
