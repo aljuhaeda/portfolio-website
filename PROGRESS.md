@@ -109,3 +109,5 @@ Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
   recall/accuracy numbers and journal citation date (see Done above),
   found while auditing case studies against their source repos'
   `PROGRESS.md` files.
+- 2026-08-11: reviewed commits since last check (README screenshot only)
+  — no site code changed, status unaffected.
