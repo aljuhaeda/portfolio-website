@@ -1,7 +1,9 @@
 # portfolio-website — Progress
 
 ## Status
-Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
+Deployed, production. Live at [aljuhaeda.com](https://aljuhaeda.com)
+(custom domain added 2026-08-15; `portfolioaljuhaeda.vercel.app` still
+resolves as the underlying Vercel deployment URL).
 
 ## Done
 - Full content rebuild from the Once UI "Magic Portfolio" template: real
@@ -111,3 +113,14 @@ Deployed, production. Live at https://portfolioaljuhaeda.vercel.app
   `PROGRESS.md` files.
 - 2026-08-11: reviewed commits since last check (README screenshot only)
   — no site code changed, status unaffected.
+- 2026-08-15: pointed aljuhaeda.com at the project (item 6 from
+  `C:\dev\PROGRESS.md`). `vercel domains add` for the apex + `www`,
+  A records `76.76.21.21` added in Cloudflare as DNS-only (not
+  proxied — Vercel needs to see its real IP for cert
+  issuance/verification), both verified via `vercel domains verify`.
+  Updated `config.js`'s `baseURL` from `portfolioaljuhaeda.vercel.app`
+  to `aljuhaeda.com`, committed, pushed, redeployed. Live-verified:
+  both `aljuhaeda.com` and `www.aljuhaeda.com` resolve and serve the
+  site, `sitemap.xml` uses the new domain with no `https://https://`
+  double-prepend (the same class of bug fixed 2026-07-28), zero real
+  console errors. GitHub repo homepage URL updated to match.
