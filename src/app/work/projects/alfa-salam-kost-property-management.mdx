@@ -1,0 +1,35 @@
+---
+title: "Alfa Salam Kost — Property Site & Staff Dashboard"
+publishedAt: "2026-08-19"
+summary: "A public room-listing site and a staff-only admin dashboard for a real boarding-house property, sharing one Supabase backend with row-level security enforced per role."
+link: "https://alfasalamkost.aljuhaeda.com"
+images: []
+---
+
+## Overview
+
+Two Next.js apps for a real property, Alfa Salam Kost (women-only rooms) and its attached Rukost (whole-house rental): a public site where renters browse live room availability, and a staff-only dashboard for managing properties, rooms, tenants, finance, and staff accounts. Both read and write the same Supabase project, with row-level security enforcing that the public side can only ever see what a `SECURITY DEFINER` function exposes, and the dashboard side scopes every table to the signed-in staff member's role.
+
+## What's built
+
+- **Public site** — live room availability by property, a gender-policy label per room, and a dedicated "Rent a House" page for the Rukost's mixed-occupancy exception to the otherwise women-only policy.
+- **Staff dashboard** — five pages (Properties, Rooms, Tenants, Finance, Staff) covering full CRUD, tenant move-in/move-out, partial-payment receipts against outstanding charges, and owner-only staff role management. A partial unique index rejects double-booking a room at the database level rather than trusting the UI to catch it.
+- **Auth and access control** — email/password login with a working forgot-password flow, second staff account invited and RLS-verified: a non-owner account is correctly blocked from seeing other staff rows, self-escalating their own role, or deleting the owner.
+- **Distinct visual identities** — the dashboard uses a dark "stamp & ledger" palette (Space Grotesk/Inter/IBM Plex Mono) built for indoor staff use; the site uses a light "key-tag" palette (Fraunces/Work Sans/IBM Plex Mono) built for renters browsing on their phone. Both ship theme (light/dark) and language (Indonesian/English) toggles.
+
+## Technologies Used
+
+- **Next.js 16**, **TypeScript**, **Tailwind CSS** — both apps
+- **Supabase** (Postgres, Auth, Row-Level Security, Storage) — shared backend
+- **Vercel** — deployment for both apps
+
+## Honest status
+
+Room data is a 23-row placeholder set (real numbering, 1–22 skipping the unlucky 13 with 12a/12b in its place) — real room details and photos are pending from the property owner. No automated test suite; verification has been build/lint plus direct RLS checks via simulated sessions in the SQL editor and live browser checks of the unauthenticated pages.
+
+## Links
+
+- [Public site](https://alfasalamkost.aljuhaeda.com)
+- [Staff dashboard](https://dashboard.alfasalamkost.aljuhaeda.com)
+- [Site source on GitHub](https://github.com/aljuhaeda/alfa-salam-kost-site)
+- [Dashboard source on GitHub](https://github.com/aljuhaeda/alfa-salam-kost-dashboard)

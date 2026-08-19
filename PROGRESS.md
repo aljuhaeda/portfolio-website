@@ -124,3 +124,19 @@ resolves as the underlying Vercel deployment URL).
   site, `sitemap.xml` uses the new domain with no `https://https://`
   double-prepend (the same class of bug fixed 2026-07-28), zero real
   console errors. GitHub repo homepage URL updated to match.
+- 2026-08-19: two candidate homepage redesign directions (Linen, Clay)
+  were built on a `rework` branch and presented via artifact — neither
+  fit. Branch deleted, `main` unchanged, zero commits diverged. See
+  `C:\dev\PROGRESS.md` item 9 for the full record.
+- 2026-08-19: synced case studies with already-completed deploy work.
+  BreastInsight, LaundryGIS, and MuslimAll case studies had never been
+  updated after their live deployments landed — `link` frontmatter and
+  the Links section on all three pointed at GitHub only, unlike
+  BankruptWatch/IndoNewsClassifier/KlasifikasiSentimenTwitter which link
+  straight to their live demo. Updated all three to the same pattern
+  (`link` → live URL, `[Live demo]` added above `[Source on GitHub]`).
+  Added a new 8th case study, `alfa-salam-kost-property-management.mdx`,
+  for the alfa-salam-kost site + dashboard — a real deployed product
+  that had zero presence in the portfolio. One combined case study for
+  both apps (public site + staff dashboard), not two, since they're one
+  product sharing a domain family and one Supabase backend.
