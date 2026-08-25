@@ -140,3 +140,5 @@ resolves as the underlying Vercel deployment URL).
   that had zero presence in the portfolio. One combined case study for
   both apps (public site + staff dashboard), not two, since they're one
   product sharing a domain family and one Supabase backend.
+- 2026-08-19: added a real cover screenshot for the alfa-salam-kost case
+  study (`b79f9b9`) — doc-only, no site code changed.
