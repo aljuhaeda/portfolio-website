@@ -82,6 +82,11 @@ resolves as the underlying Vercel deployment URL).
 - `og/route.tsx` declares `fontFamily: "Inter"` but the custom font
   fetch/embedding is commented out, so OG images silently render with
   Satori's default fallback font instead of Inter. Cosmetic, not a crash.
+- 3 high-severity CVEs remain in postcss/sharp versions bundled inside
+  next's own `node_modules` (its internal image optimizer) — only
+  fixable by upgrading to next 16 (major, breaking). Not urgent: not
+  the top-level postcss/sharp used elsewhere in this project, both of
+  which are patched (see 2026-08-25 verification log entry).
 
 ## Next up
 - Candidate: add a minimal smoke test for the `/og` route and blog
@@ -142,3 +147,15 @@ resolves as the underlying Vercel deployment URL).
   product sharing a domain family and one Supabase backend.
 - 2026-08-19: added a real cover screenshot for the alfa-salam-kost case
   study (`b79f9b9`) — doc-only, no site code changed.
+- 2026-08-25: `npm audit` found `next@15.3.8` (direct dep) carrying a
+  long list of high-severity CVEs — SSRF via middleware redirects,
+  request smuggling in rewrites, cache poisoning, XSS via CSP nonces,
+  several DoS vectors — plus `sharp@0.34.1` (libvips CVEs) and several
+  transitive findings (picomatch, yaml, js-yaml, nanoid, immutable,
+  mdast-util-to-hast). Ran `npm audit fix --force`, which bumped `next`
+  to 15.5.23 (stayed on the non-breaking 15.x line) and `sharp` to
+  0.35.3, resolving all of those. Verified: `npm run build` succeeds
+  (20/20 pages), `npm run lint` has 0 errors. 3 high-severity findings
+  remain — postcss/sharp versions bundled inside next's own
+  `node_modules` (used internally by its image optimizer) — only
+  fixable by the next 16 major bump, not attempted.
