@@ -144,7 +144,7 @@ These replace every placeholder in the artifact. Each is traceable.
 |---|---|---|---|---|
 | 1 | BankruptWatch | Reported only accuracy on a 97/3 imbalanced set; SMOTE computed but never used in training — hid that the model may have caught **0** real bankruptcies. | Random Forest catches **57%** of real bankruptcies (vs 0% naive baseline) at **40.3%** precision; trade-off stated, not hidden. | reworks |
 | 2 | BreastInsight | `87%` accuracy claim — **invalid**: trained on 798 segmentation masks mixed into 780 real images; report self-contradictory (46% vs 70% same data). | **69%** val accuracy on a masks-excluded set; per-class recall broken out (benign 0.91 / malignant **0.47** / normal 0.14); independently reproduced. | reworks |
-| 3 | KlasifikasiSentimenTwitter | JISMAN-published (Vol. 1 No. 2, Dec 2024) but buried; the highest-accuracy config was the **worst** at catching hate speech. | Deployed config trades 84% → **83%** accuracy for hate-speech recall 0.14 → **0.18**; that trade-off is the paper's central finding. | reworks |
+| 3 | KlasifikasiSentimenTwitter | Published but buried; README overstated the deployed model; the highest-accuracy config was the **worst** at catching hate speech. | Deployed config trades top accuracy (**85%** in-paper) for hate-speech recall 0.14 → **0.18**; the recall trade-off is the *repo rework's* finding (the paper reports accuracy only). Citation itself corrected — see below. | reworks |
 | 4 | LaundryGIS | Every page embedded a dead **`localhost:8080`** Mapstore iframe — broken for every real visitor since day one. | Self-contained Leaflet + vanilla JS; live on `laundrygis.aljuhaeda.com` (Cloudflare Pages). | reworks |
 | 5 | IndoNewsClassifier | Reported only the flattering accuracy. | Reports accuracy **and** macro-F1 for both models (TF-IDF 82.8% / 0.80, IndoBERT 89.7% / 0.87); fixed an empty-input crash. | reworks |
 | 6 | ShortestPathApp | 4 crash bugs since coursework submission; NetBeans run config pointed at a class that no longer existed — README's "press F6 to run" would fail. | 4 bugs fixed; compiles clean on JDK 23; builds and runs verified end to end. | reworks |
@@ -153,6 +153,26 @@ These replace every placeholder in the artifact. Each is traceable.
 
 **Hero odometer: `0 → 57` %**, caption: "BankruptWatch — the model's old score hid
 that it caught none of the real bankruptcies. Honest recall: 57%, at 40.3% precision."
+
+### The published paper — verified citation
+
+Source: `C:\dev\Zul Iflah Al Juhaeda_PaperJISMEDIA.pdf` (8 pp.), read 2026-08-30.
+
+> Al Juhaeda, Z. I., Faisal, M., & Suhartono. (2024). *Sentiment Classification
+> of Hate Speech Against Islam on Twitter Platform Using Multinomial Naïve
+> Bayes.* Journal of Informatics and Science Media (JISMedia), **1**(1), 34–38.
+> ISSN 3064-1942. Universitas Islam Negeri Maulana Malik Ibrahim, Malang.
+
+- **Corrects the current site**, which says "JISMAN Vol. 1 No. 2, December 2024" —
+  wrong on the abbreviation (JISMedia, not JISMAN), issue (1, not 2), and month
+  (July, not December). The KST case-study MDX carries the same error and must be
+  fixed in this pass.
+- In-paper results: highest accuracy **85%** at a 90:10 split with max alpha;
+  10-fold CV average **79.09%**, peak 85.05%. The paper does **not** report recall —
+  the hate-speech recall analysis (0.14 → 0.18) is the repo rework's contribution.
+- **No DOI** on the article. Journal appears to run on an OJS at stiq-kepri.ac.id;
+  no confirmed public article URL. Plan: copy the PDF to `public/paper/al-juhaeda-2024-jismedia.pdf`
+  and link the citation to that file. Ask the user for a canonical journal URL if one exists.
 
 Any number that later drifts in a source repo must be updated here too (this has
 bitten the portfolio twice — KST recall numbers, MuslimAll test count).
@@ -225,7 +245,10 @@ freezing rAF/IntersectionObserver/screenshots):
 - **3 CVEs** — resolved by Next 16. Confirm with `npm audit` post-scaffold.
 - **No E2E.** A future regression in `/og` or MDX could ship silently. The single
   smoke test is the agreed floor, not full coverage.
-- **JISMAN paper link** — currently `#` in the artifact. Need the real DOI / journal
-  URL from the KlasifikasiSentimenTwitter repo before ship.
+- **Paper link** — resolved: no DOI exists; serve the PDF from `public/paper/`
+  and cite properly (§8). Still worth asking the user for a canonical journal URL.
+- **Stale citation** — the current site + KST case-study MDX say "JISMAN Vol. 1
+  No. 2, December 2024"; correct is "JISMedia Vol. 1 Issue 1, July 2024" (§8). Fix
+  everywhere it appears.
 - **Project cover images** — 6 of 8 exist; BreastInsight and ShortestPathApp have
   none. Those rows open to text only. Not a blocker.
