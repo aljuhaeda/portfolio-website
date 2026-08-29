@@ -96,11 +96,19 @@ resolves as the underlying Vercel deployment URL).
       link labels (`linkKind`), trimmed the odometer.
     - `verification-before-completion`: fresh run — `eslint` exit 0,
       `next build` exit 0 (16/16 pages), `node --test` 3/3, `npm audit` 0.
+  - 2026-08-30 (post-ship): README rewritten for the Next 16 stack;
+    JISMEDIA citation finalized to Garuda's format (owner confirmed the
+    paper was published — the PDF's "Issue 1, July 2024" masthead is a
+    template artefact). Added **Lenis** (`lenis@1.3.x`) inertial smooth
+    scroll via `src/components/SmoothScroll.tsx` in the layout — no-ops
+    under `prefers-reduced-motion` by default, `anchors: true` for hash
+    links. Build/lint/test/audit still green.
   - **Still owed:** owner's real-browser pass — motion / 60fps / loader /
-    scroll reveals / custom cursor (agent browser freezes rAF/IO, can't
-    verify), and mobile ~375px layout. README screenshot refresh. The
-    JISMEDIA PDF-masthead vs Garuda vol/issue mismatch, for the owner to
-    confirm with the journal.
+    scroll reveals / custom cursor / **the Lenis smooth scroll (feel,
+    and no jank against the fixed header or on mobile)** (agent browser
+    freezes rAF/IO, can't verify), and mobile ~375px layout. README
+    screenshot refresh (automation froze after one good frame — owner to
+    capture in a foreground browser and replace `public/readme/homepage.png`).
 
 ## Verification log
 - 2026-08-30: **Recompiled rebuild — live-verified on `aljuhaeda.com`

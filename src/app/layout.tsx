@@ -6,6 +6,7 @@ import { baseURL, person } from "@/lib/content";
 import { Shell } from "@/components/Shell";
 import { Cursor } from "@/components/Cursor";
 import { Loader } from "@/components/Loader";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { Footer } from "@/components/Footer";
 
 const instrument = Instrument_Serif({
@@ -83,6 +84,7 @@ export default async function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
       <body>
+        <SmoothScroll />
         <Loader label={t.hero.loader} />
         <div className="veil" aria-hidden="true" />
         <Cursor />
