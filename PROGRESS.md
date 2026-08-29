@@ -51,8 +51,12 @@ resolves as the underlying Vercel deployment URL).
   source repo's own numbers get corrected later.
 
 ## In progress
-- **Full from-scratch rebuild — "Recompiled" — on branch `rework`** (started
-  2026-08-30). Drops the Once UI template (129 components) entirely.
+- Nothing currently active.
+
+## Done (continued)
+- **Full from-scratch rebuild — "Recompiled" — shipped 2026-08-30.**
+  Merged `rework` → `main` (`b368d8a`, `--no-ff`), pushed, Vercel
+  auto-deployed. Drops the Once UI template (129 components) entirely.
   - Stack: Next 16 / React 19 / Turbopack / `next-mdx-remote`. `npm audit`
     now **0 vulnerabilities** (the 3 CVEs bundled in Next 15's node_modules
     are gone in 16). Hand-built design system (`tokens.css` + CSS Modules),
@@ -92,12 +96,23 @@ resolves as the underlying Vercel deployment URL).
       link labels (`linkKind`), trimmed the odometer.
     - `verification-before-completion`: fresh run — `eslint` exit 0,
       `next build` exit 0 (16/16 pages), `node --test` 3/3, `npm audit` 0.
-  - **Still owed:** owner's real-browser pass (motion / 60fps / loader /
-    scroll reveals / cursor — agent browser can't verify these), mobile
-    ~375px, then merge `rework` → `main` + `PUSH_OK=1` push, then live
-    verification on aljuhaeda.com. README screenshot refresh.
+  - **Still owed:** owner's real-browser pass — motion / 60fps / loader /
+    scroll reveals / custom cursor (agent browser freezes rAF/IO, can't
+    verify), and mobile ~375px layout. README screenshot refresh. The
+    JISMEDIA PDF-masthead vs Garuda vol/issue mismatch, for the owner to
+    confirm with the journal.
 
 ## Verification log
+- 2026-08-30: **Recompiled rebuild — live-verified on `aljuhaeda.com`
+  after the Vercel deploy.** `/`, `/about`, `/work`,
+  `/work/bankruptwatch-*` all 200. `/sitemap.xml` 200 with single-scheme
+  URLs (no `https://https://`). `/robots.txt`, `/favicon.ico` (real ICO),
+  `/paper/al-juhaeda-2024-jismedia.pdf` all 200. **`/og?title=…` returns
+  `image/png` 200 in production** — the font-embed + `outputFileTracing`
+  fix held (this route class shipped broken 3× before). `rc-lang=id`
+  cookie switches the homepage to Indonesian live. `npm audit` 0.
+  Not verified here (needs a real browser): the running motion, loader
+  sweep, scroll reveals, custom cursor, mobile ~375px — owner's pass.
 - 2026-07-23: re-verified live production site. Homepage renders
   correctly (live clock, correct featured project, no console errors).
   `/security-review` skill checked (diff-based, N/A — no code changes
