@@ -27,10 +27,11 @@ export const social = [
   { name: "Email", href: `mailto:${person.email}` },
 ];
 
-// Citation per Garuda (garuda.kemdiktisaintek.go.id/documents/detail/4926421),
-// Indonesia's official journal index — Vol. 1 No. 2, Dec 2024. The PDF
-// masthead reads "Issue 1, July 2024"; Garuda is the index of record.
-// Page range 34–41 from the PDF. Verified 2026-08-30.
+// Citation follows Garuda (garuda.kemdiktisaintek.go.id/documents/detail/4926421),
+// Indonesia's official journal index: Vol. 1 No. 2, December 2024. Page range
+// 34–41 from the published PDF (kept locally as the readable copy / proof of
+// publication; its masthead's "Issue 1, July 2024" is a template artefact —
+// Garuda is authoritative).
 export const paper = {
   authors: "Al Juhaeda, Z. I., Faisal, M., & Suhartono",
   year: 2024,

@@ -176,8 +176,9 @@ Garuda is the index of record, so the site uses:
   **79.09%**. The paper reports accuracy only — the hate-speech recall analysis
   (0.14 → 0.18) is the repo rework's contribution.
 - Links: Garuda page (primary) + the PDF served from `public/paper/`. No DOI.
-- Open: the PDF masthead / Garuda vol-issue mismatch is worth the user confirming
-  with the journal, but Garuda governs for now.
+- Resolved 2026-08-30: owner confirms it was submitted and published; follow
+  Garuda's citation format. The PDF's "Issue 1, July 2024" masthead is a template
+  artefact. PDF kept locally as the readable copy / proof of publication.
 
 Any number that later drifts in a source repo must be updated here too (this has
 bitten the portfolio twice — KST recall numbers, MuslimAll test count).
@@ -252,7 +253,7 @@ freezing rAF/IntersectionObserver/screenshots):
   smoke test is the agreed floor, not full coverage.
 - **Paper link** — resolved: Garuda page + PDF from `public/paper/` (§8). No DOI.
 - **Citation** — only fix was JISMAN → JISMEDIA (vol/issue/date were already right).
-  Done in KST MDX + `content.ts`. PDF-masthead vs Garuda vol-issue mismatch flagged
-  for the user to confirm with the journal.
+  Done in KST MDX + `content.ts`. PDF-masthead vs Garuda mismatch resolved: follow
+  Garuda (owner confirmed publication); PDF masthead is a template artefact.
 - **Project cover images** — 6 of 8 exist; BreastInsight and ShortestPathApp have
   none. Those rows open to text only. Not a blocker.
