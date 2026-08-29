@@ -74,6 +74,9 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
+      // the pre-paint script sets data-theme / .nodelay / .noloader on <html>
+      // before React hydrates; without this, that's a hydration attr mismatch
+      suppressHydrationWarning
       className={`${instrument.variable} ${newsreader.variable} ${mono.variable}`}
     >
       <head>
