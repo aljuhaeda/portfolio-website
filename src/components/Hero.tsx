@@ -6,6 +6,7 @@ import styles from "./Hero.module.css";
 export function Hero({ t }: { t: Dict["hero"] }) {
   return (
     <section className={styles.hero}>
+      <div className={styles.inner}>
       <p className={`mono-eyebrow ${styles.eyebrow}`}>{t.eyebrow}</p>
 
       <h1 className={styles.headline}>
@@ -30,6 +31,7 @@ export function Hero({ t }: { t: Dict["hero"] }) {
       <Link href="#reworks" className={styles.cta}>
         {t.cta}
       </Link>
+      </div>
     </section>
   );
 }

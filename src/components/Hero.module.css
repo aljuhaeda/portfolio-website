@@ -8,8 +8,19 @@
   padding: 14vh var(--pad) 10vh;
 }
 
+/* real constraining block so text children wrap instead of sizing to
+   max-content (a centered flex column doesn't constrain its children's width) */
+.inner {
+  width: 100%;
+  max-width: 52rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .eyebrow {
   margin: 0 0 2.1rem;
+  max-width: 22rem;
 }
 
 .headline {
@@ -17,6 +28,26 @@
   line-height: 0.92;
   margin: 0 0 2.8rem;
   text-wrap: balance;
+}
+
+@media (max-width: 40rem) {
+  .hero {
+    padding: 12vh 5vw 8vh;
+  }
+  .eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    white-space: normal;
+  }
+  .headline {
+    font-size: clamp(1.55rem, 5.2vw, 2.4rem);
+    text-wrap: pretty;
+    overflow-wrap: anywhere;
+  }
+  .caption {
+    font-size: 0.72rem;
+    max-width: 100%;
+  }
 }
 .line {
   display: block;
@@ -53,6 +84,7 @@
 }
 
 .meter {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +106,7 @@
   font-size: 0.8rem;
   line-height: 1.9;
   color: var(--muted);
-  max-width: 46ch;
+  max-width: 26rem;
   margin: 0;
 }
 
