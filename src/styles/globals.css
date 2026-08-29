@@ -21,6 +21,10 @@ body {
 a { color: inherit; }
 img { max-width: 100%; height: auto; }
 
+/* a class with `display` beats the UA [hidden] rule on equal specificity —
+   make the attribute win so toggled panels actually collapse */
+[hidden] { display: none !important; }
+
 :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 
 h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.02em; }
