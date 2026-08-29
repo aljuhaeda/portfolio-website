@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { cache } from "react";
 import matter from "gray-matter";
 
 export type Bucket = "rework" | "shipped";
@@ -86,7 +87,9 @@ const EXTRAS: Record<
   },
 };
 
-export function getProjects(): Project[] {
+// cache(): dedupe the disk read + parse across the many calls a single request
+// makes (page + generateMetadata + generateStaticParams + findIndex).
+export const getProjects = cache((): Project[] => {
   if (!fs.existsSync(DIR)) return [];
   return fs
     .readdirSync(DIR)
@@ -108,7 +111,7 @@ export function getProjects(): Project[] {
       };
     })
     .sort((a, b) => a.order - b.order);
-}
+});
 
 export function getProject(slug: string): Project | undefined {
   return getProjects().find((p) => p.slug === slug);
