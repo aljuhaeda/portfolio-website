@@ -156,23 +156,28 @@ that it caught none of the real bankruptcies. Honest recall: 57%, at 40.3% preci
 
 ### The published paper — verified citation
 
-Source: `C:\dev\Zul Iflah Al Juhaeda_PaperJISMEDIA.pdf` (8 pp.), read 2026-08-30.
+Two sources, one conflict — resolved in favour of the official index:
+
+- **PDF masthead** (`C:\dev\Zul Iflah Al Juhaeda_PaperJISMEDIA.pdf`, 8 pp., pp. 34–41):
+  "Vol. 1, Issue 1, July 2024".
+- **Garuda** (`garuda.kemdiktisaintek.go.id/documents/detail/4926421`), Indonesia's
+  official journal index: **Vol. 1, No. 2, published December 31, 2024**.
+
+Garuda is the index of record, so the site uses:
 
 > Al Juhaeda, Z. I., Faisal, M., & Suhartono. (2024). *Sentiment Classification
 > of Hate Speech Against Islam on Twitter Platform Using Multinomial Naïve
-> Bayes.* Journal of Informatics and Science Media (JISMedia), **1**(1), 34–38.
-> ISSN 3064-1942. Universitas Islam Negeri Maulana Malik Ibrahim, Malang.
+> Bayes.* Journal of Informatics and Science Media (JISMEDIA), 1(2), 34–41.
+> ISSN 3064-1942.
 
-- **Corrects the current site**, which says "JISMAN Vol. 1 No. 2, December 2024" —
-  wrong on the abbreviation (JISMedia, not JISMAN), issue (1, not 2), and month
-  (July, not December). The KST case-study MDX carries the same error and must be
-  fixed in this pass.
-- In-paper results: highest accuracy **85%** at a 90:10 split with max alpha;
-  10-fold CV average **79.09%**, peak 85.05%. The paper does **not** report recall —
-  the hate-speech recall analysis (0.14 → 0.18) is the repo rework's contribution.
-- **No DOI** on the article. Journal appears to run on an OJS at stiq-kepri.ac.id;
-  no confirmed public article URL. Plan: copy the PDF to `public/paper/al-juhaeda-2024-jismedia.pdf`
-  and link the citation to that file. Ask the user for a canonical journal URL if one exists.
+- The current site says "JISMAN Vol. 1 No. 2, December 2024" — **right on vol/issue/date**,
+  only the abbreviation is wrong (JISMEDIA, not JISMAN). Fixed in the KST MDX + `content.ts`.
+- In-paper results: highest accuracy **85%** at a 90:10 split; 10-fold CV average
+  **79.09%**. The paper reports accuracy only — the hate-speech recall analysis
+  (0.14 → 0.18) is the repo rework's contribution.
+- Links: Garuda page (primary) + the PDF served from `public/paper/`. No DOI.
+- Open: the PDF masthead / Garuda vol-issue mismatch is worth the user confirming
+  with the journal, but Garuda governs for now.
 
 Any number that later drifts in a source repo must be updated here too (this has
 bitten the portfolio twice — KST recall numbers, MuslimAll test count).
@@ -245,10 +250,9 @@ freezing rAF/IntersectionObserver/screenshots):
 - **3 CVEs** — resolved by Next 16. Confirm with `npm audit` post-scaffold.
 - **No E2E.** A future regression in `/og` or MDX could ship silently. The single
   smoke test is the agreed floor, not full coverage.
-- **Paper link** — resolved: no DOI exists; serve the PDF from `public/paper/`
-  and cite properly (§8). Still worth asking the user for a canonical journal URL.
-- **Stale citation** — the current site + KST case-study MDX say "JISMAN Vol. 1
-  No. 2, December 2024"; correct is "JISMedia Vol. 1 Issue 1, July 2024" (§8). Fix
-  everywhere it appears.
+- **Paper link** — resolved: Garuda page + PDF from `public/paper/` (§8). No DOI.
+- **Citation** — only fix was JISMAN → JISMEDIA (vol/issue/date were already right).
+  Done in KST MDX + `content.ts`. PDF-masthead vs Garuda vol-issue mismatch flagged
+  for the user to confirm with the journal.
 - **Project cover images** — 6 of 8 exist; BreastInsight and ShortestPathApp have
   none. Those rows open to text only. Not a blocker.

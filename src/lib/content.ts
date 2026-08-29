@@ -27,14 +27,18 @@ export const social = [
   { name: "Email", href: `mailto:${person.email}` },
 ];
 
-// Verified 2026-08-30 against C:\dev\Zul Iflah Al Juhaeda_PaperJISMEDIA.pdf
+// Citation per Garuda (garuda.kemdiktisaintek.go.id/documents/detail/4926421),
+// Indonesia's official journal index — Vol. 1 No. 2, Dec 2024. The PDF
+// masthead reads "Issue 1, July 2024"; Garuda is the index of record.
+// Page range 34–41 from the PDF. Verified 2026-08-30.
 export const paper = {
   authors: "Al Juhaeda, Z. I., Faisal, M., & Suhartono",
   year: 2024,
   title:
     "Sentiment Classification of Hate Speech Against Islam on Twitter Platform Using Multinomial Naïve Bayes",
-  venue: "Journal of Informatics and Science Media (JISMedia)",
-  detail: "Vol. 1, Issue 1, pp. 34–38, July 2024. ISSN 3064-1942.",
+  venue: "Journal of Informatics and Science Media (JISMEDIA)",
+  detail: "Vol. 1, No. 2, pp. 34–41, December 2024. ISSN 3064-1942.",
+  url: "https://garuda.kemdiktisaintek.go.id/documents/detail/4926421",
   pdf: "/paper/al-juhaeda-2024-jismedia.pdf",
 };
 

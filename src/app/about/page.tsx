@@ -24,9 +24,14 @@ export default async function About() {
         <p className={styles.cite}>
           {paper.authors} ({paper.year}). <em>{paper.title}.</em> {paper.venue}, {paper.detail}
         </p>
-        <a className={styles.link} href={paper.pdf} target="_blank" rel="noopener noreferrer">
-          {t.about.paperCta} ↗
-        </a>
+        <p className={styles.paperLinks}>
+          <a className={styles.link} href={paper.url} target="_blank" rel="noopener noreferrer">
+            {t.about.paperIndex} ↗
+          </a>
+          <a className={styles.link} href={paper.pdf} target="_blank" rel="noopener noreferrer">
+            {t.about.paperPdf} ↗
+          </a>
+        </p>
       </section>
 
       <section className={styles.block}>

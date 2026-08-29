@@ -25,7 +25,8 @@ export const id: Dict = {
       "Apakah hasil yang dilaporkan itu benar sama pentingnya dengan apakah modelnya rilis.",
     studiesH: "Pendidikan",
     skillsH: "Keahlian teknis",
-    paperCta: "Baca papernya (PDF)",
+    paperIndex: "Lihat di Garuda",
+    paperPdf: "PDF",
   },
 
   log: {

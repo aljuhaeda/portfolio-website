@@ -23,7 +23,8 @@ export const en = {
       "Whether a reported result is true matters as much as whether the model ships.",
     studiesH: "Studies",
     skillsH: "Technical skills",
-    paperCta: "Read the paper (PDF)",
+    paperIndex: "View on Garuda",
+    paperPdf: "PDF",
   },
 
   log: {
