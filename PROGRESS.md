@@ -111,6 +111,18 @@ resolves as the underlying Vercel deployment URL).
     capture in a foreground browser and replace `public/readme/homepage.png`).
 
 ## Verification log
+- 2026-08-30 (post-ship sweep, via headless Chrome —
+  `chrome --headless=new --force-prefers-reduced-motion --screenshot`,
+  since the claude-in-chrome tool captures blank): `/`, `/about`, `/work`,
+  `/work/bankruptwatch-*` all render correctly on desktop — About shows the
+  full JISMEDIA citation + Garuda/PDF links, Work lists the 6 reworks,
+  the project page renders the cover + `−/+` delta + MDX prose + links.
+  **Found + fixed a mobile bug (<640px):** the hero's eyebrow / headline /
+  caption clipped the viewport — the centered flex column wasn't
+  constraining child width. Fixed with an `.inner` wrapper + rem-based
+  max-widths + a `<=40rem` block (`0203351`). Verified clean at 480px
+  (headless min viewport). Still not machine-checkable: true 375px, dark
+  theme on mobile, and all the running motion — owner's real-device pass.
 - 2026-08-30: **Recompiled rebuild — live-verified on `aljuhaeda.com`
   after the Vercel deploy.** `/`, `/about`, `/work`,
   `/work/bankruptwatch-*` all 200. `/sitemap.xml` 200 with single-scheme
