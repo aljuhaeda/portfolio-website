@@ -3,6 +3,7 @@ export const en = {
   toggle: { dark: "Dark", light: "Light", lang: "ID" },
 
   hero: {
+    loader: "recompiling the reworks",
     eyebrow: "AI · ML Engineer — Bogor, Indonesia",
     line1: "I went back and made",
     line2: "every number",
@@ -30,6 +31,8 @@ export const en = {
   log: {
     reworksH: "The reworks",
     shippedH: "Also shipped",
+    railThen: "the original builds",
+    railNow: "2026 · reworked",
     open: "open rework",
     close: "close",
     metaRework: "Earlier build → reworked 2026",

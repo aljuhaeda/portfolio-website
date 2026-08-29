@@ -1,0 +1,59 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--bg);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 14vh;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.done {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.track {
+  width: min(420px, 70vw);
+  height: 1px;
+  background: var(--line);
+  overflow: hidden;
+}
+.bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--red);
+  animation: fill 1.4s cubic-bezier(0.6, 0, 0.3, 1) forwards;
+}
+@keyframes fill {
+  to {
+    width: 100%;
+  }
+}
+
+/* hidden instantly on repeat views / reduced motion — set by the inline script */
+:global(.noloader) .loader {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none;
+  }
+}

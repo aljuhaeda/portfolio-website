@@ -5,6 +5,7 @@ export const id: Dict = {
   toggle: { dark: "Gelap", light: "Terang", lang: "EN" },
 
   hero: {
+    loader: "mengompilasi ulang rework",
     eyebrow: "Insinyur AI · ML — Bogor, Indonesia",
     line1: "Saya kembali dan membuat",
     line2: "setiap angka",
@@ -32,6 +33,8 @@ export const id: Dict = {
   log: {
     reworksH: "Rework",
     shippedH: "Juga dirilis",
+    railThen: "versi awal",
+    railNow: "2026 · dikerjakan ulang",
     open: "buka rework",
     close: "tutup",
     metaRework: "Versi awal → rework 2026",

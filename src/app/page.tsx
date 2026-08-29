@@ -18,6 +18,10 @@ export default async function Home() {
       <Hero t={t.hero} />
       <AboutBand t={t.about} />
       <section className={styles.log}>
+        <div className={styles.rail} aria-hidden="true">
+          <span style={{ top: "4%" }}>{t.log.railThen}</span>
+          <span style={{ top: "96%" }}>{t.log.railNow}</span>
+        </div>
         <LogGroup id="reworks" heading={t.log.reworksH} projects={reworks} labels={labels} />
         <LogGroup heading={t.log.shippedH} projects={shipped} labels={labels} second />
       </section>
