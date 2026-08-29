@@ -1,0 +1,49 @@
+.prose {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.prose h2 {
+  font-family: var(--font-serif);
+  font-size: var(--step-2);
+  margin: 3rem 0 0.75rem;
+  scroll-margin-top: 6rem;
+}
+.prose h3 {
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+  margin: 2rem 0 0.5rem;
+}
+.prose p {
+  margin: 0.75rem 0 1.1rem;
+}
+.prose ul,
+.prose ol {
+  margin: 0.75rem 0 1.5rem;
+  padding-left: 1.4rem;
+}
+.prose li {
+  margin: 0.35rem 0;
+}
+.prose strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+.prose a {
+  color: var(--red);
+  text-underline-offset: 3px;
+}
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0;
+}
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--red);
+  color: var(--muted);
+}

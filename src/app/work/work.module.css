@@ -1,0 +1,63 @@
+.page {
+  max-width: 46rem;
+  margin-inline: auto;
+  padding: 20vh var(--pad) 14vh;
+}
+
+.h1 {
+  font-size: var(--step-3);
+  line-height: 1.05;
+  margin: 1rem 0 3rem;
+  text-wrap: balance;
+}
+
+.groupH {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 1rem;
+}
+.second {
+  margin-top: 8vh;
+  padding-top: 8vh;
+  border-top: 1px solid var(--line);
+}
+
+.list {
+  list-style: none;
+  margin: 0 0 2vh;
+  padding: 0;
+}
+.list li {
+  border-top: 1px solid var(--line);
+}
+.list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.8rem 0;
+  text-decoration: none;
+  transition: padding-left 0.2s;
+}
+.row:hover {
+  padding-left: 0.75rem;
+}
+.name {
+  font-family: var(--font-serif);
+  font-size: var(--step-2);
+  line-height: 1;
+}
+.row:hover .name {
+  color: var(--red);
+}
+.summary {
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 56ch;
+}

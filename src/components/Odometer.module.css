@@ -1,0 +1,42 @@
+.odo {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-serif);
+  font-size: var(--step-odo);
+  line-height: 1;
+  color: var(--ink);
+}
+.odo:focus-visible {
+  outline-offset: 8px;
+}
+
+.digit {
+  position: relative;
+  width: 0.6em;
+  height: 1em;
+  overflow: hidden;
+}
+
+.strip {
+  position: absolute;
+  inset: 0 auto auto 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 1.4s cubic-bezier(0.7, 0, 0.15, 1);
+}
+.strip > span {
+  display: block;
+  height: 1em;
+  width: 0.6em;
+  text-align: center;
+}
+
+.unit {
+  color: var(--red);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strip {
+    transition: none;
+  }
+}

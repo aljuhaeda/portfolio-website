@@ -1,0 +1,24 @@
+.footer {
+  padding: 8vh var(--pad) 12vh;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.footer a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.footer a:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+.links {
+  display: flex;
+  gap: 1.25rem;
+}

@@ -1,15 +1,38 @@
-import { Column, Heading, Text } from "@/once-ui/components";
+import Link from "next/link";
+import { getDict } from "@/i18n";
 
-export default function NotFound() {
+export default async function NotFound() {
+  const { t } = await getDict();
   return (
-    <Column as="section" fill center paddingBottom="160">
-      <Text marginBottom="s" variant="display-strong-xl">
-        404
-      </Text>
-      <Heading marginBottom="l" variant="display-default-xs">
-        Page Not Found
-      </Heading>
-      <Text onBackground="neutral-weak">The page you are looking for does not exist.</Text>
-    </Column>
+    <main
+      style={{
+        minHeight: "70vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "1rem",
+        textAlign: "center",
+        padding: "0 var(--pad)",
+      }}
+    >
+      <p className="mono-eyebrow">404</p>
+      <h1 style={{ fontSize: "var(--step-3)", margin: 0 }}>{t.notFound.title}</h1>
+      <p style={{ color: "var(--muted)" }}>{t.notFound.body}</p>
+      <Link
+        href="/"
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "0.8rem",
+          textTransform: "uppercase",
+          letterSpacing: "0.09em",
+          borderBottom: "2px solid var(--red)",
+          textDecoration: "none",
+          paddingBottom: "3px",
+        }}
+      >
+        {t.notFound.home} →
+      </Link>
+    </main>
   );
 }
