@@ -1,6 +1,6 @@
 # Zul Iflah Al Juhaeda — Portfolio
 
-[![aljuhaeda.com](https://aljuhaeda.com/og?title=aljuhaeda.com)](https://aljuhaeda.com)
+[![aljuhaeda.com homepage](public/readme/homepage.png)](https://aljuhaeda.com)
 
 Personal portfolio at **[aljuhaeda.com](https://aljuhaeda.com)**. Eight machine-learning
 and software projects — text classifiers, a bankruptcy-risk model, a breast-ultrasound
