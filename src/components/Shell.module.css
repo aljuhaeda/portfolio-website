@@ -1,0 +1,68 @@
+.shell {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem var(--pad);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.mark {
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.mark::before {
+  content: "·";
+  color: var(--red);
+  margin-right: 0.5ch;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-transform: uppercase;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+.links a {
+  text-decoration: none;
+  color: var(--muted);
+}
+.links a:hover {
+  color: var(--ink);
+}
+
+.right button {
+  font: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: none;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+}
+.right button:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+@media (max-width: 52rem) {
+  .links {
+    display: none;
+  }
+}

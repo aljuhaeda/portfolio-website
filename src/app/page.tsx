@@ -1,95 +1,31 @@
-import React from "react";
+import { getDict } from "@/i18n";
+import { getProjects } from "@/lib/projects";
+import { Hero } from "@/components/Hero";
+import { AboutBand } from "@/components/AboutBand";
+import { LogGroup, rowLabels } from "@/components/LogGroup";
+import { HireBand } from "@/components/HireBand";
+import styles from "./page.module.css";
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row } from "@/once-ui/components";
-import { Projects } from "@/components/work/Projects";
+export default async function Home() {
+  const { t } = await getDict();
+  const projects = getProjects();
+  const reworks = projects.filter((p) => p.bucket === "rework");
+  const shipped = projects.filter((p) => p.bucket === "shipped");
+  const labels = rowLabels(t);
 
-import { baseURL } from "@/app/resources";
-import { home, about, person, work, newsletter } from "@/app/resources/content";
-import { Mailchimp } from "@/components";
-import { Meta, Schema } from "@/once-ui/modules";
-
-export async function generateMetadata() {
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-  });
-}
-
-export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
-      <Schema
-        as="webPage"
-        baseURL={baseURL}
-        path={home.path}
-        title={home.title}
-        description={home.description}
-        image={`${baseURL}/og?title=${encodeURIComponent(home.title)}`}
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-      <Column fillWidth paddingY="24" gap="m" horizontal="center">
-        <Column maxWidth="s" horizontal="center">
-          {home.featured && (
-          <RevealFx fillWidth horizontal="center" paddingTop="16" paddingBottom="32">
-            <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
-              href={home.featured.href}>
-              <Row paddingY="2">{home.featured.title}</Row>
-            </Badge>
-          </RevealFx>
-          )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" align="center" variant="display-strong-l">
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" align="center" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              arrowIcon
-            >
-              <Flex gap="8" vertical="center">
-                {about.avatar.display && (
-                  <Avatar
-                    style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Flex>
-            </Button>
-          </RevealFx>
-        </Column>
-      </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 3]} />
-      </RevealFx>
-      <RevealFx horizontal="center" paddingTop="8" paddingBottom="16">
-        <Button
-          href={work.path}
-          variant="secondary"
-          size="m"
-          arrowIcon
-        >
-          View all projects
-        </Button>
-      </RevealFx>
-      {newsletter.display && <Mailchimp newsletter={newsletter} />}
-    </Column>
+    <main>
+      <Hero t={t.hero} />
+      <AboutBand t={t.about} />
+      <section className={styles.log}>
+        <div className={styles.rail} aria-hidden="true">
+          <span style={{ top: "4%" }}>{t.log.railThen}</span>
+          <span style={{ top: "96%" }}>{t.log.railNow}</span>
+        </div>
+        <LogGroup id="reworks" heading={t.log.reworksH} projects={reworks} labels={labels} />
+        <LogGroup heading={t.log.shippedH} projects={shipped} labels={labels} second />
+      </section>
+      <HireBand t={t.hire} />
+    </main>
   );
 }

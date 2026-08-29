@@ -1,0 +1,83 @@
+.page {
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: 18vh var(--pad) 14vh;
+}
+
+.back {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-decoration: none;
+}
+.back:hover {
+  color: var(--red);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 3rem 0 0.75rem;
+}
+
+.title {
+  font-size: var(--step-3);
+  line-height: 1;
+  margin: 0 0 1rem;
+}
+
+.summary {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: var(--muted);
+  margin: 0 0 2.5rem;
+}
+
+.cover {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
+}
+
+.delta {
+  font-family: var(--font-mono);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.1rem 1.4rem;
+  font-size: 0.8rem;
+  line-height: 2;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.rm {
+  color: var(--red);
+}
+.ad {
+  color: var(--add);
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 8vh;
+  padding-top: 4vh;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+.pager a {
+  text-decoration: none;
+  color: var(--muted);
+}
+.pager a:hover {
+  color: var(--red);
+}

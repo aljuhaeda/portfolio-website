@@ -1,23 +1,18 @@
-import { getPosts } from "@/app/utils/utils";
-import { baseURL, routes as routesConfig } from "@/app/resources";
+import type { MetadataRoute } from "next";
+import { baseURL, routes } from "@/lib/content";
+import { getProjects } from "@/lib/projects";
 
-export default async function sitemap() {
-  const blogs = getPosts(["src", "app", "blog", "posts"]).map((post) => ({
-    url: `${baseURL}/blog/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date().toISOString().split("T")[0];
+
+  const staticRoutes = Object.keys(routes)
+    .filter((r) => routes[r])
+    .map((r) => ({ url: `${baseURL}${r === "/" ? "" : r}`, lastModified: now }));
+
+  const projectRoutes = getProjects().map((p) => ({
+    url: `${baseURL}/work/${p.slug}`,
+    lastModified: p.publishedAt || now,
   }));
 
-  const works = getPosts(["src", "app", "work", "projects"]).map((post) => ({
-    url: `${baseURL}/work/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
-  }));
-
-  const activeRoutes = Object.keys(routesConfig).filter((route) => routesConfig[route as keyof typeof routesConfig]);
-
-  const routes = activeRoutes.map((route) => ({
-    url: `${baseURL}${route !== "/" ? route : ""}`,
-    lastModified: new Date().toISOString().split("T")[0],
-  }));
-
-  return [...routes, ...blogs, ...works];
+  return [...staticRoutes, ...projectRoutes];
 }

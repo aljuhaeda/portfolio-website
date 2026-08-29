@@ -1,0 +1,39 @@
+/* Recompiled — design tokens.
+   Light is the committed default (bare :root). Dark only via the toggle
+   (:root[data-theme="dark"]). No prefers-color-scheme query — deliberate,
+   per the design spec: "light default with option to change". */
+
+:root {
+  --bg: #f4f2ec;          /* warm paper */
+  --panel: #ffffff;
+  --ink: #1a1813;
+  --muted: #6c6558;
+  --line: #e2ddd0;
+  --red: #d13a1e;         /* proof red — corrections + links only */
+  --add: #2f8f43;         /* diff green — "+" lines only, not an accent */
+
+  --maxw: 66rem;
+  --pad: 6vw;
+
+  --font-serif: var(--font-instrument), "Newsreader", Georgia, serif;
+  --font-body: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, "JetBrains Mono", monospace;
+
+  --step--1: 0.83rem;
+  --step-0: 1rem;
+  --step-1: 1.19rem;
+  --step-2: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem);
+  --step-3: clamp(1.9rem, 1.2rem + 3vw, 3.4rem);
+  --step-hero: clamp(2.9rem, 0.5rem + 9.6vw, 8.6rem);
+  --step-odo: clamp(3.75rem, 1rem + 13vw, 8.25rem);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0e0e0c;
+  --panel: #161513;
+  --ink: #f2efe6;
+  --muted: #8f8b7e;
+  --line: #2a2824;
+  --red: #ff4a2e;
+  --add: #57c96b;
+}

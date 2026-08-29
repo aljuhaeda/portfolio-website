@@ -1,48 +1,21 @@
-import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components";
-import { person, social } from "@/app/resources/content";
-import styles from "./Footer.module.scss";
+import { person, social } from "@/lib/content";
+import styles from "./Footer.module.css";
 
-export const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
+export function Footer() {
   return (
-    <Flex
-      as="footer"
-      fillWidth
-      padding="8"
-      horizontal="center"
-      mobileDirection="column"
-    >
-      <Flex
-        className={styles.mobile}
-        maxWidth="m"
-        paddingY="8"
-        paddingX="16"
-        gap="16"
-        horizontal="space-between"
-        vertical="center"
-      >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-        </Text>
-        <Flex gap="16">
-          {social.map(
-            (item) =>
-              item.link && (
-                <IconButton
-                  key={item.name}
-                  href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
-                  variant="ghost"
-                />
-              ),
-          )}
-        </Flex>
-      </Flex>
-      <Flex height="80" show="s"></Flex>
-    </Flex>
+    <footer className={styles.footer}>
+      <span>
+        {person.locationLabel} · <a href={`mailto:${person.email}`}>{person.email}</a>
+      </span>
+      <span className={styles.links}>
+        {social
+          .filter((s) => s.name !== "Email")
+          .map((s) => (
+            <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer">
+              {s.name}
+            </a>
+          ))}
+      </span>
+    </footer>
   );
-};
+}
