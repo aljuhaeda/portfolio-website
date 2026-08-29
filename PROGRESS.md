@@ -83,6 +83,15 @@ resolves as the underlying Vercel deployment URL).
   - Real favicon moved to `public/favicon.ico` — Turbopack's build-time
     image decoder rejects the RGB-PNG ICO at `app/favicon.ico`.
   - `next build` + `eslint` + `node --test test/smoke.mjs` all green.
+  - Close-out sequence run on the branch diff (2026-08-30):
+    - `code-reviewer`: 1 major (per-request MDX re-parse → fixed with
+      `React.cache`), minors noted; approve.
+    - `security-review`: no findings — static content site, no auth/db/forms,
+      only user input is `/og?title=` which renders to a raster image.
+    - `simplify`: deduped `p.name` / `useReveal` hook, data-drove the project
+      link labels (`linkKind`), trimmed the odometer.
+    - `verification-before-completion`: fresh run — `eslint` exit 0,
+      `next build` exit 0 (16/16 pages), `node --test` 3/3, `npm audit` 0.
   - **Still owed:** owner's real-browser pass (motion / 60fps / loader /
     scroll reveals / cursor — agent browser can't verify these), mobile
     ~375px, then merge `rework` → `main` + `PUSH_OK=1` push, then live
