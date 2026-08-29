@@ -1,19 +1,19 @@
 import type { Dict } from "@/i18n";
 import type { Project } from "@/lib/projects";
-import { ProjectRow } from "./ProjectRow";
+import { ProjectRow, type RowLabels } from "./ProjectRow";
 import styles from "./LogGroup.module.css";
 
 export function LogGroup({
   id,
   heading,
   projects,
-  t,
+  labels,
   second = false,
 }: {
   id?: string;
   heading: string;
   projects: Project[];
-  t: Dict;
+  labels: RowLabels;
   second?: boolean;
 }) {
   return (
@@ -22,8 +22,20 @@ export function LogGroup({
         {heading} <span className={styles.n}>· {projects.length}</span>
       </h2>
       {projects.map((p) => (
-        <ProjectRow key={p.slug} p={p} t={t} />
+        <ProjectRow key={p.slug} p={p} t={labels} />
       ))}
     </>
   );
+}
+
+export function rowLabels(t: Dict): RowLabels {
+  return {
+    open: t.log.open,
+    close: t.log.close,
+    readFull: t.log.readFull,
+    metaRework: t.log.metaRework,
+    metaMerge: t.log.metaMerge,
+    metaShip: t.log.metaShip,
+    visit: t.visit,
+  };
 }

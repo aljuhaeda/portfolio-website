@@ -7,15 +7,20 @@ import type { Dict } from "@/i18n";
 import type { Project } from "@/lib/projects";
 import styles from "./ProjectRow.module.css";
 
-function visitLabel(p: Project, t: Dict["visit"]) {
+export type RowLabels = Pick<
+  Dict["log"],
+  "open" | "close" | "readFull" | "metaRework" | "metaMerge" | "metaShip"
+> & { visit: Dict["visit"] };
+
+function visitLabel(p: Project, v: Dict["visit"]) {
   if (!p.link) return null;
-  if (p.link.includes("github.com")) return t.src;
-  if (p.link.includes("streamlit.app")) return t.demo;
-  if (p.slug.startsWith("muslimall")) return t.app;
-  return t.site;
+  if (p.link.includes("github.com")) return v.src;
+  if (p.link.includes("streamlit.app")) return v.demo;
+  if (p.slug.startsWith("muslimall")) return v.app;
+  return v.site;
 }
 
-export function ProjectRow({ p, t }: { p: Project; t: Dict }) {
+export function ProjectRow({ p, t }: { p: Project; t: RowLabels }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLElement>(null);
   const bodyId = useId();
@@ -44,7 +49,7 @@ export function ProjectRow({ p, t }: { p: Project; t: Dict }) {
   }, []);
 
   const metaText =
-    p.meta === "merge" ? t.log.metaMerge : p.meta === "ship" ? t.log.metaShip : t.log.metaRework;
+    p.meta === "merge" ? t.metaMerge : p.meta === "ship" ? t.metaShip : t.metaRework;
   const label = visitLabel(p, t.visit);
   const name = p.title.split("—")[0].trim();
 
@@ -60,7 +65,7 @@ export function ProjectRow({ p, t }: { p: Project; t: Dict }) {
         <span className={styles.meta}>{metaText}</span>
         <h3 className={styles.title}>{name}</h3>
         <span className={styles.summary}>{p.summary}</span>
-        <span className={styles.more}>{open ? `– ${t.log.close}` : `+ ${t.log.open}`}</span>
+        <span className={styles.more}>{open ? `– ${t.close}` : `+ ${t.open}`}</span>
       </button>
 
       <div className={styles.body} id={bodyId} hidden={!open}>
@@ -88,7 +93,7 @@ export function ProjectRow({ p, t }: { p: Project; t: Dict }) {
         </div>
         <div className={styles.links}>
           <Link className={styles.visit} href={`/work/${p.slug}`}>
-            {t.log.readFull} →
+            {t.readFull} →
           </Link>
           {p.link && label && (
             <a className={styles.visit} href={p.link} target="_blank" rel="noopener noreferrer">
