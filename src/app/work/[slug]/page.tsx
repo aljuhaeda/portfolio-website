@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const p = getProject(slug);
   if (!p) return {};
-  const title = p.title.split("—")[0].trim();
+  const title = p.name;
   return {
     title,
     description: p.summary,
@@ -45,7 +45,6 @@ export default async function ProjectPage({
   const p = projects[i];
   const prev = projects[i - 1];
   const next = projects[i + 1];
-  const name = p.title.split("—")[0].trim();
   const metaText =
     p.meta === "merge" ? t.log.metaMerge : p.meta === "ship" ? t.log.metaShip : t.log.metaRework;
 
@@ -56,14 +55,14 @@ export default async function ProjectPage({
       </Link>
 
       <p className={styles.meta}>{metaText}</p>
-      <h1 className={styles.title}>{name}</h1>
+      <h1 className={styles.title}>{p.name}</h1>
       <p className={styles.summary}>{p.summary}</p>
 
       {p.cover && (
         <Image
           className={styles.cover}
           src={p.cover}
-          alt={`${name} — cover`}
+          alt={`${p.name} — cover`}
           width={1280}
           height={720}
           priority
@@ -88,12 +87,12 @@ export default async function ProjectPage({
 
       <nav className={styles.pager}>
         {prev ? (
-          <Link href={`/work/${prev.slug}`}>← {prev.title.split("—")[0].trim()}</Link>
+          <Link href={`/work/${prev.slug}`}>← {prev.name}</Link>
         ) : (
           <span />
         )}
         {next ? (
-          <Link href={`/work/${next.slug}`}>{next.title.split("—")[0].trim()} →</Link>
+          <Link href={`/work/${next.slug}`}>{next.name} →</Link>
         ) : (
           <span />
         )}

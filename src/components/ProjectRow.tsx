@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useId, useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import type { Dict } from "@/i18n";
 import type { Project } from "@/lib/projects";
+import { useReveal } from "./useReveal";
 import styles from "./ProjectRow.module.css";
 
 export type RowLabels = Pick<
@@ -12,46 +13,15 @@ export type RowLabels = Pick<
   "open" | "close" | "readFull" | "metaRework" | "metaMerge" | "metaShip"
 > & { visit: Dict["visit"] };
 
-function visitLabel(p: Project, v: Dict["visit"]) {
-  if (!p.link) return null;
-  if (p.link.includes("github.com")) return v.src;
-  if (p.link.includes("streamlit.app")) return v.demo;
-  if (p.slug.startsWith("muslimall")) return v.app;
-  return v.site;
-}
-
 export function ProjectRow({ p, t }: { p: Project; t: RowLabels }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLElement>(null);
   const bodyId = useId();
-
-  useEffect(() => {
-    const el = ref.current!;
-    if (
-      typeof IntersectionObserver === "undefined" ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      el.classList.add("in");
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries)
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-          }
-      },
-      { threshold: 0.18 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+  useReveal(ref);
 
   const metaText =
     p.meta === "merge" ? t.metaMerge : p.meta === "ship" ? t.metaShip : t.metaRework;
-  const label = visitLabel(p, t.visit);
-  const name = p.title.split("—")[0].trim();
+  const label = p.link ? t.visit[p.linkKind] : null;
 
   return (
     <article ref={ref} className={`reveal ${styles.row}`}>
@@ -63,7 +33,7 @@ export function ProjectRow({ p, t }: { p: Project; t: RowLabels }) {
         onClick={() => setOpen((v) => !v)}
       >
         <span className={styles.meta}>{metaText}</span>
-        <h3 className={styles.title}>{name}</h3>
+        <h3 className={styles.title}>{p.name}</h3>
         <span className={styles.summary}>{p.summary}</span>
         <span className={styles.more}>{open ? `– ${t.close}` : `+ ${t.open}`}</span>
       </button>
@@ -73,7 +43,7 @@ export function ProjectRow({ p, t }: { p: Project; t: RowLabels }) {
           <Image
             className={styles.cover}
             src={p.cover}
-            alt={`${name} — cover`}
+            alt={`${p.name} — cover`}
             width={520}
             height={325}
             sizes="(max-width: 560px) 90vw, 520px"

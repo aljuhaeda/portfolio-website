@@ -14,7 +14,7 @@ function List({ items }: { items: Project[] }) {
       {items.map((p) => (
         <li key={p.slug}>
           <Link href={`/work/${p.slug}`} className={styles.row}>
-            <span className={styles.name}>{p.title.split("—")[0].trim()}</span>
+            <span className={styles.name}>{p.name}</span>
             <span className={styles.summary}>{p.summary}</span>
           </Link>
         </li>

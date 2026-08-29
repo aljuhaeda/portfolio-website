@@ -6,10 +6,6 @@
   line-height: 1;
   color: var(--ink);
 }
-.odo:focus-visible {
-  outline-offset: 8px;
-}
-
 .digit {
   position: relative;
   width: 0.6em;
