@@ -51,7 +51,42 @@ resolves as the underlying Vercel deployment URL).
   source repo's own numbers get corrected later.
 
 ## In progress
-- Nothing currently active.
+- **Full from-scratch rebuild — "Recompiled" — on branch `rework`** (started
+  2026-08-30). Drops the Once UI template (129 components) entirely.
+  - Stack: Next 16 / React 19 / Turbopack / `next-mdx-remote`. `npm audit`
+    now **0 vulnerabilities** (the 3 CVEs bundled in Next 15's node_modules
+    are gone in 16). Hand-built design system (`tokens.css` + CSS Modules),
+    Instrument Serif + Newsreader + JetBrains Mono via `next/font`.
+  - Direction: editorial/typographic, warm paper + proof-red, rising hero,
+    `0 → 57` odometer (BankruptWatch recall), reworks/also-shipped buckets,
+    click-to-expand project rows, first-visit loader sweep, left timeline
+    rail, hire band, custom cursor (fine-pointer only). Two comps live as
+    artifacts; "Recompiled" (the dark/max cut, then lightened + centered)
+    was chosen. Design spec + implementation plan under
+    `docs/superpowers/specs/2026-08-30-portfolio-recompiled-*`.
+  - i18n: EN default (deviation from CLAUDE.md's ID-default standing rule,
+    decided for hiring reach), ID toggle. Cookie-driven so SSR is correct —
+    consequence: every page renders dynamically (ƒ), no static/CDN HTML.
+    Acceptable for a site this small; `generateStaticParams` on
+    `/work/[slug]` kept for slug validation.
+  - Corrected numbers on every project sourced from that repo's own
+    PROGRESS.md / README git history, verified 2026-08-30. BankruptWatch's
+    "92% accuracy" claim confirmed real (README @ `bb3a2c6`); honest figure
+    is 56.8% recall / 40.3% precision. Paper citation: only error on the old
+    site was the abbreviation (JISMAN → **JISMEDIA**); vol/issue/date were
+    right per Garuda. PDF masthead disagrees with Garuda on vol/issue —
+    flagged for the owner to confirm with the journal.
+  - `/og` rewritten: Node runtime, Instrument Serif **embedded properly**
+    this time (was commented out → silent fallback), width/height set,
+    `outputFileTracingIncludes` forces the TTF into the Vercel function
+    bundle (verified in `route.js.nft.json`).
+  - Real favicon moved to `public/favicon.ico` — Turbopack's build-time
+    image decoder rejects the RGB-PNG ICO at `app/favicon.ico`.
+  - `next build` + `eslint` + `node --test test/smoke.mjs` all green.
+  - **Still owed:** owner's real-browser pass (motion / 60fps / loader /
+    scroll reveals / cursor — agent browser can't verify these), mobile
+    ~375px, then merge `rework` → `main` + `PUSH_OK=1` push, then live
+    verification on aljuhaeda.com. README screenshot refresh.
 
 ## Verification log
 - 2026-07-23: re-verified live production site. Homepage renders
