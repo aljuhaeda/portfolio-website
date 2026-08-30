@@ -54,5 +54,7 @@ entry to `EXTRAS` in `src/lib/projects.ts` (the build throws if one is missing).
 
 The site was originally scaffolded from Once UI's [Magic Portfolio](https://github.com/once-ui-system/magic-portfolio)
 template (CC BY-NC 4.0 — see [LICENSE](LICENSE)). It was rebuilt from scratch in
-2026 — the template and its component library were removed entirely; all content,
-layout, and styling are original.
+2026 — the template and its 129-component library were removed entirely; all
+content, layout, and styling are original. The current design ("Recompiled" —
+serif display type, an odometer stat, light-default palette) shipped 2026-08-30
+and is verified live on desktop and a real phone.
