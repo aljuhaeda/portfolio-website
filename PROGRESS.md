@@ -103,12 +103,10 @@ resolves as the underlying Vercel deployment URL).
     scroll via `src/components/SmoothScroll.tsx` in the layout — no-ops
     under `prefers-reduced-motion` by default, `anchors: true` for hash
     links. Build/lint/test/audit still green.
-  - **Still owed:** owner's real-browser pass — motion / 60fps / loader /
-    scroll reveals / custom cursor / **the Lenis smooth scroll (feel,
-    and no jank against the fixed header or on mobile)** (agent browser
-    freezes rAF/IO, can't verify), and mobile ~375px layout. README
-    screenshot refresh (automation froze after one good frame — owner to
-    capture in a foreground browser and replace `public/readme/homepage.png`).
+  - **Owner-verified 2026-08-30:** checked on a real phone, no issues —
+    covers the running motion (Lenis feel, loader, reveals, cursor, 60fps),
+    the small viewport, and no header jank. README screenshot done via
+    headless Chrome. **Nothing outstanding.**
 
 ## Verification log
 - 2026-08-30 (post-ship sweep, via headless Chrome —
@@ -121,8 +119,7 @@ resolves as the underlying Vercel deployment URL).
   caption clipped the viewport — the centered flex column wasn't
   constraining child width. Fixed with an `.inner` wrapper + rem-based
   max-widths + a `<=40rem` block (`0203351`). Verified clean at 480px
-  (headless min viewport). Still not machine-checkable: true 375px, dark
-  theme on mobile, and all the running motion — owner's real-device pass.
+  (headless min viewport); owner then confirmed on a real phone — no issues.
 - 2026-08-30: **Recompiled rebuild — live-verified on `aljuhaeda.com`
   after the Vercel deploy.** `/`, `/about`, `/work`,
   `/work/bankruptwatch-*` all 200. `/sitemap.xml` 200 with single-scheme
