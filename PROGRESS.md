@@ -108,6 +108,14 @@ resolves as the underlying Vercel deployment URL).
     the small viewport, and no header jank. README screenshot done via
     headless Chrome. **Nothing outstanding.**
 
+## Doc-only / content update (2026-08-30)
+README refreshed for the Recompiled stack (post owner-verification).
+Then two case-study covers recaptured from the live redesigned sites —
+`alfa-salam-kost` and `laundrygis` covers still showed the pre-redesign
+pages (old serif hero with dead nav items; a bare Leaflet embed) —
+1280x720 shots taken from the current live sites. Content-drift fix, no
+site code changed.
+
 ## Verification log
 - 2026-08-30 (post-ship sweep, via headless Chrome —
   `chrome --headless=new --force-prefers-reduced-motion --screenshot`,
