@@ -49,6 +49,7 @@ export const en = {
     app: "Live app",
     src: "Source",
     all: "View all work",
+    wake: "free hosting: may take ~30 s to wake",
   },
 
   hire: {

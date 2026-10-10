@@ -173,6 +173,7 @@ site code changed.
   which are patched (see 2026-08-25 verification log entry).
 
 ## Next up
+- 2026-10-10, **local only, not pushed** (needs Zul's yes): (1) project cards show "free hosting: may take ~30 s to wake" (EN/ID) next to Streamlit demo links, `ProjectRow.tsx` + i18n; (2) `.github/workflows/wake-streamlit.yml` runs `.github/scripts/wake_streamlit.py` every 6 h and clicks "Yes, get this app back up!" on the 4 Streamlit demos (audit F4). Script tested locally: woke all four, then re-ran clean against awake apps. The workflow itself has not run on GitHub yet: after the push, run it once via Actions → Run workflow. GitHub pauses scheduled runs after 60 days with no repo activity.
 - Candidate: add a minimal smoke test for the `/og` route and blog
   fallback, given both have broken silently before.
 

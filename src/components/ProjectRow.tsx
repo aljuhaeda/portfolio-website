@@ -70,6 +70,7 @@ export function ProjectRow({ p, t }: { p: Project; t: RowLabels }) {
               {label} ↗
             </a>
           )}
+          {p.link?.includes("streamlit.app") && <span className={styles.note}>{t.visit.wake}</span>}
         </div>
       </div>
     </article>

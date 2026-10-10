@@ -126,3 +126,10 @@
 .visit:hover {
   color: var(--red);
 }
+.note {
+  flex-basis: 100%;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+}

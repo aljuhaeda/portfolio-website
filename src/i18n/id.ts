@@ -51,6 +51,7 @@ export const id: Dict = {
     app: "Aplikasi langsung",
     src: "Kode sumber",
     all: "Lihat semua karya",
+    wake: "hosting gratis: bisa butuh ~30 dtk untuk bangun",
   },
 
   hire: {
