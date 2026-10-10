@@ -243,3 +243,11 @@ site code changed.
   remain — postcss/sharp versions bundled inside next's own
   `node_modules` (used internally by its image optimizer) — only
   fixable by the next 16 major bump, not attempted.
+- 2026-10-10 (workspace audit): `next@16.3.3` was inside GHSA-vcvr-r3jv-pc5j
+  (critical RCE in `next/og` ImageResponse, `>=16.2.0 <16.3.6`), and `/og` is
+  public and feeds `?title=` straight into `ImageResponse`. Bumped to 16.3.8
+  (`96e803a`), which also clears the image-optimizer SSRF (GHSA-cjq9-62q9-8jv4)
+  and the cache-poisoning advisories. Verified: `npm run build` clean (16
+  routes); under `next start`, `/og?title=…` returns a 200 PNG and `/` 200.
+  **Not live until pushed** (deploy-linked); remaining `npm audit` highs are
+  lint-only tooling (`eslint-config-next` chain) plus `sharp`.
