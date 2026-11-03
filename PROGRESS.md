@@ -156,24 +156,9 @@ site code changed.
   runtime behavior (e.g. the OG route) without a test catching it —
   this is exactly the class of bug that shipped 3 times during the
   original deploy.
-- `RouteGuard.tsx` still contains the full password-gate flow (fetches
-  to `/api/authenticate` and `/api/check-auth`, both deleted as dead
-  code — see Done above). Currently inert because `protectedRoutes = {}`
-  in `config.js`, but would silently break (404 → treated as
-  "not authenticated") if that config were ever populated. Not removed
-  since it's dead-but-harmless; worth deleting alongside a future
-  cleanup pass.
-- `og/route.tsx` declares `fontFamily: "Inter"` but the custom font
-  fetch/embedding is commented out, so OG images silently render with
-  Satori's default fallback font instead of Inter. Cosmetic, not a crash.
-- 3 high-severity CVEs remain in postcss/sharp versions bundled inside
-  next's own `node_modules` (its internal image optimizer) — only
-  fixable by upgrading to next 16 (major, breaking). Not urgent: not
-  the top-level postcss/sharp used elsewhere in this project, both of
-  which are patched (see 2026-08-25 verification log entry).
 
 ## Next up
-- 2026-10-10, **local only, not pushed** (needs Zul's yes): (1) project cards show "free hosting: may take ~30 s to wake" (EN/ID) next to Streamlit demo links, `ProjectRow.tsx` + i18n; (2) `.github/workflows/wake-streamlit.yml` runs `.github/scripts/wake_streamlit.py` every 6 h and clicks "Yes, get this app back up!" on the 4 Streamlit demos (audit F4). Script tested locally: woke all four, then re-ran clean against awake apps. The workflow itself has not run on GitHub yet: after the push, run it once via Actions → Run workflow. GitHub pauses scheduled runs after 60 days with no repo activity.
+- 2026-10-10, shipped (`704f7ca`, `main` == `origin/main`): (1) project cards show "free hosting: may take ~30 s to wake" (EN/ID) next to Streamlit demo links, `ProjectRow.tsx` + i18n; (2) `.github/workflows/wake-streamlit.yml` runs `.github/scripts/wake_streamlit.py` every 6 h and clicks "Yes, get this app back up!" on the 4 Streamlit demos (audit F4). As of 2026-11-03 `gh run list` shows 83 runs since 2026-10-10 (82 scheduled, 1 manual `workflow_dispatch`), all successful. GitHub pauses scheduled runs after 60 days with no repo activity.
 - Candidate: add a minimal smoke test for the `/og` route and blog
   fallback, given both have broken silently before.
 
