@@ -159,6 +159,7 @@ site code changed.
 
 ## Next up
 - 2026-10-10, shipped (`704f7ca`, `main` == `origin/main`): (1) project cards show "free hosting: may take ~30 s to wake" (EN/ID) next to Streamlit demo links, `ProjectRow.tsx` + i18n; (2) `.github/workflows/wake-streamlit.yml` runs `.github/scripts/wake_streamlit.py` every 6 h and clicks "Yes, get this app back up!" on the 4 Streamlit demos (audit F4). As of 2026-11-03 `gh run list` shows 83 runs since 2026-10-10 (82 scheduled, 1 manual `workflow_dispatch`), all successful. GitHub pauses scheduled runs after 60 days with no repo activity.
+- Candidates (2026-11-03): a school-evote case study after the 18 Nov election (sanitized: no names, PINs or minors' data) and a short cileupTrip one.
 - Candidate: add a minimal smoke test for the `/og` route and blog
   fallback, given both have broken silently before.
 
@@ -237,3 +238,4 @@ site code changed.
   routes); under `next start`, `/og?title=…` returns a 200 PNG and `/` 200.
   **Not live until pushed** (deploy-linked); remaining `npm audit` highs are
   lint-only tooling (`eslint-config-next` chain) plus `sharp`.
+- 2026-11-03: (1) `npm audit fix` took Next 16.3.8 -> 16.4.4 (lockfile only, `d1ca88d`; `npm audit --omit=dev` 0 vulnerabilities; was a critical advisory set incl. unauthenticated RCE). (2) KlasifikasiSentimenTwitter case study corrected: label meaning had been inverted (`Positif` = non-hate, `Negatif` = hate against Islam, paper section 2.1 Table 1) and the citation was wrong (now JISMEDIA 1(1), pp. 34-38, July 2024); numbers labelled as the original evaluation plus a note on the leak-free re-audit (`e76a59b`). (3) Work page and home list Shipped before The reworks; headings 'Shipped' / 'Dirilis' (`4447464`). (4) Positioning: `person.role`, hero eyebrow (EN/ID) and site description now say Data & ML instead of AI/ML; rail captions relabelled 'shipped · 2026' / 'reworked · 2026'; description no longer says 'eight machine-learning projects' (4 of 8 are ML) (`97ad42d`). All four pushed; verified live the same day: title 'Data & Machine Learning Engineer', `/work` order, `/`, `/work`, `/about`, `/og` 200, `wake-streamlit` 83+ scheduled runs green. Not done: formal close-out sequence (build, typecheck and live check only; no browser check of scroll-reveal/rail on a real foreground browser).
