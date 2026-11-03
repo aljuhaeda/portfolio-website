@@ -15,7 +15,7 @@ export const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "AI / Machine Learning Engineer",
+  role: "Data & Machine Learning Engineer",
   avatar: "/images/avatar.jpg",
   email: "aljuhaeda@gmail.com",
   locationLabel: "Bogor, Indonesia",

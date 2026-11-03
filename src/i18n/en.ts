@@ -4,7 +4,7 @@ export const en = {
 
   hero: {
     loader: "recompiling the reworks",
-    eyebrow: "AI · ML Engineer — Bogor, Indonesia",
+    eyebrow: "Data & ML Engineer — Bogor, Indonesia",
     line1: "I went back and made",
     line2: "every number",
     line3: "honest.",
@@ -31,8 +31,8 @@ export const en = {
   log: {
     reworksH: "The reworks",
     shippedH: "Shipped",
-    railThen: "the original builds",
-    railNow: "2026 · reworked",
+    railThen: "shipped · 2026",
+    railNow: "reworked · 2026",
     open: "open rework",
     close: "close",
     metaRework: "Earlier build → reworked 2026",

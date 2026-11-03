@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: `%s — ${person.name}`,
   },
   description:
-    "AI / ML engineer in Bogor, Indonesia. Published NLP research and eight machine-learning projects, each revisited until the reported number was honest.",
+    "Data and ML engineer in Bogor, Indonesia. Published NLP research and eight projects, each revisited until the reported number was honest.",
   openGraph: {
     type: "website",
     locale: "en",
