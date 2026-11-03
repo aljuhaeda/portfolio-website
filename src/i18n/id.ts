@@ -32,7 +32,7 @@ export const id: Dict = {
 
   log: {
     reworksH: "Rework",
-    shippedH: "Juga dirilis",
+    shippedH: "Dirilis",
     railThen: "versi awal",
     railNow: "2026 · dikerjakan ulang",
     open: "buka rework",

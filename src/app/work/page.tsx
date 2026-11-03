@@ -32,10 +32,10 @@ export default async function Work() {
       <p className="mono-eyebrow">{t.work.title}</p>
       <h1 className={styles.h1}>{t.work.intro}</h1>
 
-      <h2 className={styles.groupH}>{t.log.reworksH}</h2>
-      <List items={projects.filter((p) => p.bucket === "rework")} />
-      <h2 className={`${styles.groupH} ${styles.second}`}>{t.log.shippedH}</h2>
+      <h2 className={styles.groupH}>{t.log.shippedH}</h2>
       <List items={projects.filter((p) => p.bucket === "shipped")} />
+      <h2 className={`${styles.groupH} ${styles.second}`}>{t.log.reworksH}</h2>
+      <List items={projects.filter((p) => p.bucket === "rework")} />
     </main>
   );
 }

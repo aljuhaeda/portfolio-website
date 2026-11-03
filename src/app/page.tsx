@@ -22,8 +22,8 @@ export default async function Home() {
           <span style={{ top: "4%" }}>{t.log.railThen}</span>
           <span style={{ top: "96%" }}>{t.log.railNow}</span>
         </div>
-        <LogGroup id="reworks" heading={t.log.reworksH} projects={reworks} labels={labels} />
-        <LogGroup heading={t.log.shippedH} projects={shipped} labels={labels} second />
+        <LogGroup heading={t.log.shippedH} projects={shipped} labels={labels} />
+        <LogGroup id="reworks" heading={t.log.reworksH} projects={reworks} labels={labels} second />
       </section>
       <HireBand t={t.hire} />
     </main>

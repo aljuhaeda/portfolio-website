@@ -30,7 +30,7 @@ export const en = {
 
   log: {
     reworksH: "The reworks",
-    shippedH: "Also shipped",
+    shippedH: "Shipped",
     railThen: "the original builds",
     railNow: "2026 · reworked",
     open: "open rework",
