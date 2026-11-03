@@ -35,7 +35,7 @@ const EXTRAS: Record<string, Extra> = {
     bucket: "rework", meta: "rework", order: 1, linkKind: "demo",
     delta: {
       remove: ["README overstated what the deployed model could do", "no recall analysis — accuracy only"],
-      add: ["accuracy 84 → 83%, a deliberate trade", "hate-speech recall 0.14 → 0.18"],
+      add: ["accuracy 84 → 83%, a deliberate trade", "non-hate (minority class) recall 0.14 → 0.18"],
     },
   },
   "breastinsight-ultrasound-image-classifier": {

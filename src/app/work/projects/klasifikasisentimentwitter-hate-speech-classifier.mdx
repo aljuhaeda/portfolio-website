@@ -9,13 +9,14 @@ images:
 
 ## Overview
 
-A Multinomial Naïve Bayes classifier detecting hate speech against Islam in Indonesian-language tweets. The underlying research was published in the Journal of Informatics and Science Media (JISMEDIA), Vol. 1 No. 2, pp. 34–41, December 2024 (ISSN 3064-1942). The repository had been sitting in a buried folder with a README that overstated what the deployed model could actually do.
+A Multinomial Naïve Bayes classifier detecting hate speech against Islam in Indonesian-language tweets. The underlying research was published in the Journal of Informatics and Science Media (JISMEDIA), Vol. 1 No. 1, pp. 34–38, July 2024 (ISSN 3064-1942). The repository had been sitting in a buried folder with a README that overstated what the deployed model could actually do.
 
 ## What I fixed
 
 - Promoted the project out of a nested folder into its own repo.
 - Corrected a factually wrong README claim (an unverifiable "92%"-style headline number that didn't match the notebook).
-- Deliberately deployed the config that trades accuracy for recall on the minority (hate-speech) class: **18% recall / 83% accuracy** (alpha=2.0, 80/20 split), instead of the highest-accuracy config, which scores 84% accuracy but only **14% recall** — a hate-speech filter that catches 1 in 7 real cases isn't a useful filter, regardless of its accuracy score.
+- Deliberately deployed the config that trades a little accuracy for recall on the minority class. In this dataset `Negatif` is hate speech against Islam (83% of 1,200 tweets) and `Positif` is non-hate (17%), so a model that calls almost every tweet hate still looks accurate. The deployed config (alpha=2.0, 80/20 split) scored **83% accuracy and 18% recall on the non-hate class** in the original evaluation, instead of the highest-accuracy config (84% accuracy, but **14% recall** on that class).
+- Re-audited the evaluation in November 2026 with a leak-free pipeline (vectorizer fit on training data only, alpha chosen without the test set): the deployed config scores about 82% accuracy and 13% non-hate recall, and no configuration beats the always-predict-hate baseline (about 84%) on accuracy. The published figures and the audit are both documented in the repository.
 
 ## Technologies Used
 
