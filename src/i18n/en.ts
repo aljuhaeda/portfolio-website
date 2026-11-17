@@ -5,12 +5,12 @@ export const en = {
   hero: {
     loader: "recompiling the reworks",
     eyebrow: "Data & ML Engineer — Bogor, Indonesia",
-    line1: "I went back and made",
-    line2: "every number",
-    line3: "honest.",
+    line1: "I check",
+    line2: "the number",
+    line3: "before the demo.",
     caption:
       "BankruptWatch — the old score hid that the model caught none of the real bankruptcies. Honest recall: 57%, at 40.3% precision.",
-    cta: "Read the reworks",
+    cta: "Read the audits",
   },
 
   about: {
@@ -29,7 +29,7 @@ export const en = {
   },
 
   log: {
-    reworksH: "The reworks",
+    reworksH: "Audited",
     shippedH: "Shipped",
     railThen: "shipped · 2026",
     railNow: "reworked · 2026",
@@ -53,7 +53,7 @@ export const en = {
   },
 
   hire: {
-    kicker: "Open to ML roles",
+    kicker: "Open to data & ML roles",
     line: "If you want someone who checks the number before the demo — let's talk.",
     button: "Email me",
   },

@@ -7,12 +7,12 @@ export const id: Dict = {
   hero: {
     loader: "mengompilasi ulang rework",
     eyebrow: "Insinyur Data & ML — Bogor, Indonesia",
-    line1: "Saya kembali dan membuat",
-    line2: "setiap angka",
-    line3: "jujur.",
+    line1: "Saya periksa",
+    line2: "angkanya",
+    line3: "sebelum demo.",
     caption:
       "BankruptWatch — skor lama menyembunyikan bahwa modelnya tak menangkap satu pun kebangkrutan nyata. Recall jujur: 57%, dengan presisi 40,3%.",
-    cta: "Lihat semua rework",
+    cta: "Lihat yang diaudit",
   },
 
   about: {
@@ -31,7 +31,7 @@ export const id: Dict = {
   },
 
   log: {
-    reworksH: "Rework",
+    reworksH: "Diaudit",
     shippedH: "Dirilis",
     railThen: "dirilis · 2026",
     railNow: "dikerjakan ulang · 2026",
@@ -55,7 +55,7 @@ export const id: Dict = {
   },
 
   hire: {
-    kicker: "Terbuka untuk peran ML",
+    kicker: "Terbuka untuk peran data & ML",
     line: "Jika Anda butuh orang yang memeriksa angkanya sebelum demo — mari bicara.",
     button: "Email saya",
   },

@@ -49,6 +49,26 @@ resolves as the underlying Vercel deployment URL).
   and the JISMAN Vol. 1 No. 2, Dec 2024 citation, per that repo's own
   `PROGRESS.md`. A reminder that case-study MDX can drift stale when its
   source repo's own numbers get corrected later.
+- Brand-consistency pass (2026-11-17). Supersedes the 2026-07-31 and
+  2026-08-30 entries on the hate-speech numbers and the citation.
+  - Citation is now "Vol. 1, No. 1, pp. 34–38, July 2024" (the PDF
+    masthead and the source repo's `ERRATA.md`). Open: the "View on
+    Garuda" link lists Vol. 1 No. 2, Dec 2024, and the PDF's printed
+    page numbers run 34–41.
+  - KlasifikasiSentimenTwitter card and case study: the "84 → 83%
+    deliberate trade" framing is gone. Now: leak-free re-fit, accuracy
+    never beats the always-hate baseline, hate recall 0.9492 /
+    precision 0.8500, non-hate recall 0.1316 (all from `ERRATA.md`).
+  - Hero headline "I check the number before the demo." (EN + ID), same
+    line in the OG image title; section label "Audited" / "Diaudit"
+    (anchor `#reworks` unchanged); hero button "Read the audits"; CTA
+    "Open to data & ML roles". The loader text still says "reworks".
+  - Next 16.4.4 → 16.4.6 (GHSA-mfr8-8qww-v76h). `npm audit` still lists
+    7 moderate, all in the eslint toolchain (dev only).
+  - Close-out: Opus reviewer (no blockers; caught the stale OG title and
+    an unqualified baseline claim, both fixed), secrets scan clear,
+    `eslint` 0, `next build` 16/16, `node --test` 3/3. Not checked: the
+    new headline's line breaks in a real browser or on a phone.
 
 ## In progress
 - Nothing currently active.

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: person.name,
     images: [
       {
-        url: `${baseURL}/og?title=${encodeURIComponent("I went back and made every number honest.")}`,
+        url: `${baseURL}/og?title=${encodeURIComponent("I check the number before the demo.")}`,
         width: 1280,
         height: 720,
       },
