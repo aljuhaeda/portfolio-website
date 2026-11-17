@@ -54,7 +54,7 @@ resolves as the underlying Vercel deployment URL).
   - Citation is now "Vol. 1, No. 2, pp. 31–38, December 2024", per the
     journal's article page (jismandiri.com/index.php/jisman/article/view/48,
     published 2024-12-31), which matches Garuda. The PDF's running header
-    ("Vol. 1, Issue 1, pp. 34–38, July 2024") is the outlier.
+    ("Vol. 1, Issue. 1, Pag. 34-38, July 2024") is the outlier.
   - KlasifikasiSentimenTwitter card and case study: the "84 → 83%
     deliberate trade" framing is gone. Now: leak-free re-fit, accuracy
     never beats the always-hate baseline, hate recall 0.9492 /

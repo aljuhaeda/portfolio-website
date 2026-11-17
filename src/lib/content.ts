@@ -29,8 +29,8 @@ export const social = [
 
 // Citation follows the journal's article page
 // (jismandiri.com/index.php/jisman/article/view/48): Vol. 1 No. 2, pp. 31–38,
-// December 2024, matching Garuda. The PDF's running header ("Vol. 1, Issue 1,
-// pp. 34–38, July 2024") is the outlier.
+// December 2024, matching Garuda. The PDF's running header ("Vol. 1, Issue. 1,
+// Pag. 34-38, July 2024") is the outlier.
 export const paper = {
   authors: "Al Juhaeda, Z. I., Faisal, M., & Suhartono",
   year: 2024,
