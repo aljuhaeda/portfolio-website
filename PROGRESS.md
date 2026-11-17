@@ -51,10 +51,10 @@ resolves as the underlying Vercel deployment URL).
   source repo's own numbers get corrected later.
 - Brand-consistency pass (2026-11-17). Supersedes the 2026-07-31 and
   2026-08-30 entries on the hate-speech numbers and the citation.
-  - Citation is now "Vol. 1, No. 1, pp. 34–38, July 2024" (the PDF
-    masthead and the source repo's `ERRATA.md`). Open: the "View on
-    Garuda" link lists Vol. 1 No. 2, Dec 2024, and the PDF's printed
-    page numbers run 34–41.
+  - Citation is now "Vol. 1, No. 2, pp. 31–38, December 2024", per the
+    journal's article page (jismandiri.com/index.php/jisman/article/view/48,
+    published 2024-12-31), which matches Garuda. The PDF's running header
+    ("Vol. 1, Issue 1, pp. 34–38, July 2024") is the outlier.
   - KlasifikasiSentimenTwitter card and case study: the "84 → 83%
     deliberate trade" framing is gone. Now: leak-free re-fit, accuracy
     never beats the always-hate baseline, hate recall 0.9492 /
